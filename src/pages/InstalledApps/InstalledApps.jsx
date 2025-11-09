@@ -45,7 +45,7 @@ const InstalledApps = () => {
     };
     return (
         <div>
-            <title>Gaming Infinity-Installed Games</title>
+            <title>Mentora Academy-Enrolled</title>
             <h1 className='text-2xl md:text-4xl font-bold text-center mt-5 text-[#b413e1]'>Your Installed Games</h1>
             <p className='text-sm md:text-xl text-center my-3'>Explore All Trending Games on the Market developed by us.</p>
             <div className='flex flex-col md:flex-row justify-between items-center mx-15 text-2xl font-bold text-[#b413e1] '>

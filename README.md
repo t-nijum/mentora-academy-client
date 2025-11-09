@@ -78,5 +78,4 @@ From browsing trending courses to managing personalized learning dashboards, **M
 
 ---
 
-## 📁 Folder Structure
 

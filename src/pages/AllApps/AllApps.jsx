@@ -39,7 +39,7 @@ const AllApps = () => {
 
     return (
         <div className="mt-10 px-4 md:mr-6">
-            <title>Gaming Infinity-All Games</title>
+            <title>Mentora Academy-All Courses</title>
             <div className="flex flex-col md:flex-row justify-between items-center">
                 <h2 className="text-3xl font-bold text-center mb-4 text-[#b413e1]">
                     Total {filteredApps.length} Games Found{" "}

@@ -1,7 +1,6 @@
 import React, {} from 'react';
 
 import { Link } from "react-router";
-
 const OurApp = ({ singleAppData }) => {
     const { id, image, title, description,price, downloads, ratingAvg } = singleAppData
 

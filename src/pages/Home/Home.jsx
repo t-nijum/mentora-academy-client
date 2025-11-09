@@ -11,7 +11,7 @@ const Home = () => {
     // console.log(appsData);
     return (
         <div>
-            <title>Gaming Infinity-Home</title>
+            <title>Mentora Academy-Home</title>
             {import.meta.env.VITE_name}
             <Banner></Banner>
             <OurApps appsData={appsData}></OurApps>

@@ -52,10 +52,9 @@ const NavBar = () => {
                         <Link to='/'>
                             <img className='h-[50px] w-[50px] rounded-full mr-2' src="/logo.png" alt="Logo" />
                         </Link>
-                        <p className="font-bold ml-2 md:ml-2 md:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-[#b413e1] to-[#8a0cb0]"><span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ffcc00] to-[#ff00e4]">
+                        <p className="font-bold ml-2 md:ml-2 md:text-4xl text-xl text-transparent bg-clip-text bg-gradient-to-r from-[#b413e1] to-[#8a0cb0]"><span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ffcc00] to-[#ff00e4]">
                         Mentora
-                        </span>{" "}
-                        Academy</p>
+                        </span>{" "}</p>
                     </div>
 
                 </div>
