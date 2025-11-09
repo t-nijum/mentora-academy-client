@@ -1,0 +1,68 @@
+import React from 'react';
+import { createBrowserRouter } from "react-router";
+import Root from '../pages/Root/Root';
+import ErrorPage from '../pages/ErrorPage/ErrorPage';
+import Home from '../pages/Home/Home';
+import AllApps from '../pages/AllApps/AllApps';
+import AppDetails from '../pages/AppDetails/AppDetails';
+import InstalledApps from '../pages/InstalledApps/InstalledApps';
+import Login from '../pages/Login/Login';
+import Register from '../pages/Register/Register';
+import PrivateRoute from '../provider/PrivateRoute';
+import Loading from '../pages/Loading/Loading';
+import UpdateProfile from '../pages/UpdateProfile/UpdateProfile';
+import MyProfile from '../pages/MyProfile/MyProfile';
+
+export const router = createBrowserRouter([
+  {
+    path: "/",
+    Component: Root,
+    errorElement: <ErrorPage></ErrorPage>,
+    children: [
+      {
+        index: true,
+        Component: Home,
+        loader: () => fetch('/appsData.json'),
+        hydrateFallbackElement: <Loading></Loading>,
+        
+      },
+      {
+        path: '/games',
+        Component: AllApps,
+        loader: () => fetch("/appsData.json"),
+        hydrateFallbackElement: <Loading></Loading>,
+        
+      },
+      {
+        path: '/installed',
+        element: <PrivateRoute> <InstalledApps></InstalledApps> </PrivateRoute>,
+        loader: () => fetch('/appsData.json'),
+        hydrateFallbackElement: <Loading></Loading>,
+      },
+      {
+        path: '/appDetails/:id',
+        element: <PrivateRoute> <AppDetails></AppDetails> </PrivateRoute>,
+        loader: () => fetch('/appsData.json'),
+        hydrateFallbackElement: <Loading></Loading>,
+        
+      },
+      {
+        path: '/login',
+        Component: Login
+      },
+      {
+        path: 'register',
+        Component: Register
+      },
+      {
+        path: '/update-profile',
+        element: <PrivateRoute><UpdateProfile></UpdateProfile></PrivateRoute>
+      },
+      {
+        path: '/profile',
+        element: <PrivateRoute><MyProfile></MyProfile></PrivateRoute>
+      }
+  
+    ]
+  },
+]);

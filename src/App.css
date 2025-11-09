@@ -1,0 +1,4 @@
+nav a.active {
+    background-color: rgb(27, 214, 21);
+    font-weight: bolder;
+}
