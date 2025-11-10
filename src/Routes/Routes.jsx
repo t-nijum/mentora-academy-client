@@ -13,6 +13,8 @@ import Loading from '../pages/Loading/Loading';
 import UpdateProfile from '../pages/UpdateProfile/UpdateProfile';
 import MyProfile from '../pages/MyProfile/MyProfile';
 import TopCourses from '../pages/TopCourses/TopCourses';
+import CourseDetails from '../pages/CourseDetails/CourseDetails';
+import Courses from '../pages/Courses/Courses';
 
 export const router = createBrowserRouter([
   {
@@ -64,8 +66,17 @@ export const router = createBrowserRouter([
         element: <PrivateRoute><MyProfile></MyProfile></PrivateRoute>
       },
       {
+        path: '/courses',
+        Component: Courses
+      },
+      {
         path: '/top-courses',
         Component: TopCourses
+      },
+      {
+        path: '/courseDetails/:id',
+        loader: ({params}) => fetch(`http://localhost:3000/courses/${params.id}`),
+        Component: CourseDetails
       },
   
     ]

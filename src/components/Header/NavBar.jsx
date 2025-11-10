@@ -24,7 +24,7 @@ const NavBar = () => {
 
     const links = <>
         <Link to='/'><li className='ml-4 md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#b413e1] to-[#8a0cb0]'>Home</li></Link>
-        <Link to='/games'><li className='ml-4 md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#b413e1] to-[#8a0cb0] '>Courses</li></Link>
+        <Link to='/courses'><li className='ml-4 md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#b413e1] to-[#8a0cb0] '>Courses</li></Link>
         <Link to='/installed'><li className='ml-4 md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#b413e1] to-[#8a0cb0]'>Enrolled</li> </Link>
         {/* Private route when user is login then show this */}
         {
