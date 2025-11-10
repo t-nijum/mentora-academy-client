@@ -1,7 +1,6 @@
 import React, { Suspense, useState, useEffect } from "react";
 import { useLoaderData } from "react-router";
 import OurApp from "../OurApp/OurApp";
-import CourseCard from "../../CourseCard/CourseCard";
 
 const AllApps = () => {
     const appsData = useLoaderData();
@@ -86,9 +85,6 @@ const AllApps = () => {
                         {filteredApps.map((app) => (
                             <OurApp key={app.id} singleAppData={app}></OurApp>
                         ))}
-                        {/* {filteredApps.map((app) => (
-                            <CourseCard key={app.id} singleAppData={app}></CourseCard>
-                        ))} */}
                     </div>
                 </Suspense>
             )}

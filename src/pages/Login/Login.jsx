@@ -24,6 +24,26 @@ const Login = () => {
             .then(result => {
                 const user = result.user
                 // console.log(user);
+                // ---For store user name, email and photoUrl from signin with google
+                const newUser = {
+                    name: result.user.displayName,
+                    email: result.user.email,
+                    image: result.user.photoURL
+                }
+
+                // create user in the database
+                fetch('http://localhost:3000/users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(newUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log('data after user save', data)
+                    })
+                // -----user detailed stored in Mongo db
                 navigate(`${location.state ? location.state : '/'}`)
                 setSuccess(true)
                 toast('Login Successfully!')
@@ -61,7 +81,27 @@ const Login = () => {
     const handleGoogleSignIn = () => {
         signInWithGoogle()
             .then((result) => {
-                console.log(result.user);
+                // console.log(result.user);
+                // ---For store user name, email and photoUrl from signin with google
+                const newUser = {
+                    name: result.user.displayName,
+                    email: result.user.email,
+                    image: result.user.photoURL
+                }
+                // create user in the database
+                fetch('http://localhost:3000/users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(newUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log('data after user save', data)
+                    })
+                // -----user detailed stored in Mongo db
+
                 navigate(location?.state?.from || "/"); // fallback if no redirect path
             })
             .catch((error) => {

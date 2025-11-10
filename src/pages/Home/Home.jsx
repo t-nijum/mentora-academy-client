@@ -2,7 +2,10 @@ import React from 'react';
 import Banner from '../../components/Banner/Banner';
 import OurApps from '../OurApps/OurApps';
 import { useLoaderData } from 'react-router';
-import TopCourses from '../../components/TopCourses/TopCourses';
+import TopCourses from '../TopCourses/TopCourses';
+
+const topCoursesPromise = fetch('http://localhost:3000/top-courses')
+    .then(res => res.json())
 
 const Home = () => {
     // Received data from routes loader
@@ -15,7 +18,7 @@ const Home = () => {
             {import.meta.env.VITE_name}
             <Banner></Banner>
             <OurApps appsData={appsData}></OurApps>
-            {/* <TopCourses appsData={appsData}></TopCourses> */}
+            <TopCourses topCoursesPromise={topCoursesPromise}></TopCourses>
         </div>
     );
 };

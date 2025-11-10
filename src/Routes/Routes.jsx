@@ -12,6 +12,7 @@ import PrivateRoute from '../provider/PrivateRoute';
 import Loading from '../pages/Loading/Loading';
 import UpdateProfile from '../pages/UpdateProfile/UpdateProfile';
 import MyProfile from '../pages/MyProfile/MyProfile';
+import TopCourses from '../pages/TopCourses/TopCourses';
 
 export const router = createBrowserRouter([
   {
@@ -61,7 +62,11 @@ export const router = createBrowserRouter([
       {
         path: '/profile',
         element: <PrivateRoute><MyProfile></MyProfile></PrivateRoute>
-      }
+      },
+      {
+        path: '/top-courses',
+        Component: TopCourses
+      },
   
     ]
   },
