@@ -17,7 +17,7 @@ const Home = () => {
             <title>Mentora Academy-Home</title>
             {import.meta.env.VITE_name}
             <Banner></Banner>
-            <OurApps appsData={appsData}></OurApps>
+            {/* <OurApps appsData={appsData}></OurApps> */}
             <TopCourses topCoursesPromise={topCoursesPromise}></TopCourses>
         </div>
     );
