@@ -4,7 +4,7 @@ import { MdOutlineReadMore } from 'react-icons/md';
 import { Link } from 'react-router';
 
 const CourseCard = ({ course }) => {
-    const { _id, image, title, description,price, purchases, ratingAvg } = course
+    const { _id, image, title, description, price, purchases, instructor_name,instructor_email,  ratingAvg, duration, catagory } = course
     return (
 
             <div className='rounded-xl'>

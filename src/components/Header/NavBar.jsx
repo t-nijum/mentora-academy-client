@@ -43,7 +43,7 @@ const NavBar = () => {
                     <li><Link to="/profile">Profile</Link></li>
                     <li><Link to="/dashboard/enrolled">Enrolled Courses</Link></li>
                     <li><Link to="/addNewCourses">Add New Course</Link></li>
-                    <li><Link to="/dashboard/my-courses">My Added Courses</Link></li>
+                    <li><Link to="/myAddedCourses">My Added Courses</Link></li>
                 </ul>
             </div>
         )}

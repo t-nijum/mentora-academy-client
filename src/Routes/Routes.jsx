@@ -16,6 +16,7 @@ import TopCourses from '../pages/TopCourses/TopCourses';
 import CourseDetails from '../pages/CourseDetails/CourseDetails';
 import Courses from '../pages/Courses/Courses';
 import AddNewCourse from '../pages/AddNewCourse/AddNewCourse';
+import MyAddedCourses from '../pages/MyAddedCourses/MyAddedCourses';
 
 export const router = createBrowserRouter([
   {
@@ -82,6 +83,10 @@ export const router = createBrowserRouter([
       {
         path: '/addNewCourses',
         Component: AddNewCourse
+      },
+      {
+        path: '/myAddedCourses',
+        Component: MyAddedCourses
       },
   
     ]

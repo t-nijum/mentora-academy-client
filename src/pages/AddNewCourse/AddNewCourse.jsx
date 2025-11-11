@@ -21,6 +21,29 @@ const AddNewCourse = () => {
         const email = form.email.value;
         console.log(instructor,title,email, category, image, price, duration, description);
 
+        const addNewCourse = {
+            course_title: title,
+            course_category: category,
+            course_duration : duration,
+            course_image: image,
+            course_price: price,
+            course_description : description,
+            instructor_name: instructor,
+            instructor_email: email,
+        }
+        fetch('http://localhost:3000/add_new_courses',{
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(addNewCourse)
+        })
+            .then(res=> res.json())
+            .then(data=>{
+                console.log('after adding new course', data);
+                
+            })
+
         // const email = form.email.value;
         // const password = form.password.value;
         // // console.log(name, photo, email, password);
@@ -47,13 +70,13 @@ const AddNewCourse = () => {
                                     <label className="label">Course Category</label>
                                     <input required type="text" name="category" className="input" placeholder='Course Category' />
                                     <label className="label">Course Duration</label>
-                                    <input required type='number' name="duration" className="input" placeholder='Course Duration' />
+                                    <input required type='text' name="duration" className="input" placeholder='Course Duration (Hours)' />
 
                                     <label className="label">Image URL</label>
                                     <input type="text" name="image" className="input" placeholder='Image URL' />
 
                                     <label className="label">Course Price</label>
-                                    <input required type="text" name="price" className="input" placeholder='Course Price' />
+                                    <input required type="text" name="price" className="input" placeholder='Course Price (USD)' />
 
                                     <label className="label">Course Description</label>
                                     <input required type="text" name="description" className="input" placeholder='Course Description' />
