@@ -15,6 +15,7 @@ import MyProfile from '../pages/MyProfile/MyProfile';
 import TopCourses from '../pages/TopCourses/TopCourses';
 import CourseDetails from '../pages/CourseDetails/CourseDetails';
 import Courses from '../pages/Courses/Courses';
+import AddNewCourse from '../pages/AddNewCourse/AddNewCourse';
 
 export const router = createBrowserRouter([
   {
@@ -77,6 +78,10 @@ export const router = createBrowserRouter([
         path: '/courseDetails/:id',
         loader: ({params}) => fetch(`http://localhost:3000/courses/${params.id}`),
         Component: CourseDetails
+      },
+      {
+        path: '/addNewCourses',
+        Component: AddNewCourse
       },
   
     ]

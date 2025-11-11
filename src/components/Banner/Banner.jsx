@@ -38,7 +38,7 @@ const Banner = () => {
                         At Mentora Academy, we blend technology and mentorship to shape the innovators of tomorrow.
 Smarter learning. Sharper skills. Stronger futures.
                     </p>
-                    <Link to='/games'>
+                    <Link to='/courses'>
                         <button class="mt-6 px-6 py-3 bg-[#ffcc00] text-[#1e003e] font-semibold rounded-full shadow-lg hover:scale-105 transition">
                             Explore Our Courses</button>
                     </Link>

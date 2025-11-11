@@ -22,16 +22,31 @@ const NavBar = () => {
 
     }
 
-    const links = <>
+    const links = 
+    <>
         <Link to='/'><li className='ml-4 md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#b413e1] to-[#8a0cb0]'>Home</li></Link>
         <Link to='/courses'><li className='ml-4 md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#b413e1] to-[#8a0cb0] '>Courses</li></Link>
         <Link to='/installed'><li className='ml-4 md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#b413e1] to-[#8a0cb0]'>Enrolled</li> </Link>
         {/* Private route when user is login then show this */}
-        {
+        {/* {
             user && <>
                 <Link to='/profile'><li className='ml-4 md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#b413e1] to-[#8a0cb0]'>Profile</li> </Link>
             </>
-        }
+        } */}
+
+        {user && (
+            <div className="dropdown dropdown-hover">
+                {/* This label is the visible Dashboard text */}
+                <label tabIndex={0}  className="cursor-pointer ml-4 md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#b413e1] to-[#8a0cb0]">Dashboard</label>
+                {/* Dropdown content */}
+                <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 md:text-lg font-semibold text-[#b413e1]">
+                    <li><Link to="/profile">Profile</Link></li>
+                    <li><Link to="/dashboard/enrolled">Enrolled Courses</Link></li>
+                    <li><Link to="/addNewCourses">Add New Course</Link></li>
+                    <li><Link to="/dashboard/my-courses">My Added Courses</Link></li>
+                </ul>
+            </div>
+        )}
     </>
     return (
         <div className='Navbar parent'>
@@ -63,23 +78,6 @@ const NavBar = () => {
                         {links}
                     </ul>
                 </div>
-                {/* ---- */}
-                {/* Dashboard Dropdown */}
-                <div className="dropdown dropdown-hover ">
-                    <label tabIndex={0} className="cursor-pointer ml-4 md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#b413e1] to-[#8a0cb0]">
-                        Dashboard
-                    </label>
-                    <ul
-                        tabIndex={0}
-                        className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 md:text-lg font-bold text-[#b413e1] "
-                    >
-                        <Link to='/profile'>Profile</Link>
-                        <Link to="/dashboard/enrolled">Enrolled Courses</Link>
-                        <Link to="/dashboard/add-course">Add New Course</Link>
-                        <Link to="/dashboard/my-courses">My Added Courses</Link>
-                    </ul>
-                </div>
-                {/* ------ */}
                 <div className="navbar-end">
                     <Link to='/profile'>
                         <img className={`mr-1 ${user ? 'w-12 h-12 rounded-full text-center border-2 text-[#b413e1]' : 'w-12 h-12 rounded-full border-2 text-black'}`} src={`${user ? user.photoURL : '/user.png'}`} alt="User" />
