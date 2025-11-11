@@ -53,7 +53,7 @@ const NavBar = () => {
                             <img className='h-[50px] w-[50px] rounded-full mr-2' src="/logo.png" alt="Logo" />
                         </Link>
                         <p className="font-bold ml-2 md:ml-2 md:text-4xl text-xl text-transparent bg-clip-text bg-gradient-to-r from-[#b413e1] to-[#8a0cb0]"><span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ffcc00] to-[#ff00e4]">
-                        Mentora
+                            Mentora
                         </span>{" "}</p>
                     </div>
 
@@ -63,6 +63,23 @@ const NavBar = () => {
                         {links}
                     </ul>
                 </div>
+                {/* ---- */}
+                {/* Dashboard Dropdown */}
+                <div className="dropdown dropdown-hover ">
+                    <label tabIndex={0} className="cursor-pointer ml-4 md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#b413e1] to-[#8a0cb0]">
+                        Dashboard
+                    </label>
+                    <ul
+                        tabIndex={0}
+                        className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 md:text-lg font-bold text-[#b413e1] "
+                    >
+                        <Link to='/profile'>Profile</Link>
+                        <Link to="/dashboard/enrolled">Enrolled Courses</Link>
+                        <Link to="/dashboard/add-course">Add New Course</Link>
+                        <Link to="/dashboard/my-courses">My Added Courses</Link>
+                    </ul>
+                </div>
+                {/* ------ */}
                 <div className="navbar-end">
                     <Link to='/profile'>
                         <img className={`mr-1 ${user ? 'w-12 h-12 rounded-full text-center border-2 text-[#b413e1]' : 'w-12 h-12 rounded-full border-2 text-black'}`} src={`${user ? user.photoURL : '/user.png'}`} alt="User" />

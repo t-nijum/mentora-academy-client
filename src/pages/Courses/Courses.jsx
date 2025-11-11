@@ -1,12 +1,12 @@
 import React, { Suspense, use, useEffect, useState } from 'react';
 import CourseCard from '../CourseCard/CourseCard';
 
-const topCoursesPromise = fetch('http://localhost:3000/courses')
+const coursesPromise = fetch('http://localhost:3000/courses')
     .then(res => res.json())
 
 const Courses = () => {
-    const courses = use(topCoursesPromise)
-    console.log(courses);
+    const courses = use(coursesPromise)
+    // console.log(courses);
 
     const [searchTerm, setSearchTerm] = useState("");
     const [loading, setLoading] = useState(true);
@@ -21,8 +21,8 @@ const Courses = () => {
     }, [courses]);
 
     // Filtered list based on search input
-    const filteredCourses = courses.filter((course) =>
-        course.title.toLowerCase().includes(searchTerm.toLowerCase())
+    const filteredCourses = courses.filter((course1) =>
+        course1.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
     // Handle search with small spinner delay

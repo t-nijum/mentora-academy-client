@@ -3,7 +3,7 @@ import { useLoaderData } from "react-router";
 import OurApp from "../OurApp/OurApp";
 
 const AllApps = () => {
-    const appsData = useLoaderData();
+    // const appsData = useLoaderData();
     const [searchTerm, setSearchTerm] = useState("");
     const [loading, setLoading] = useState(true);
     const [searchLoading, setSearchLoading] = useState(false);
