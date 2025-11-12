@@ -18,6 +18,7 @@ const MyAddedCourseDetails = () => {
             draggable: true
         });
     }
+
     return (
         <div className='mx-5 md:max-w-[1100px] md:mx-auto card bg-base-100 shadow-lg border-gray-200 p-5 mt-3 md:mt-10'>
             <title>{title}</title>
@@ -26,8 +27,8 @@ const MyAddedCourseDetails = () => {
 
                 <div className="mt-5 p-4">
                     <h1 className="text-3xl font-bold">{title}</h1>
-                    <h1 className="text-lg font-semibold">Category:{category}</h1>
-                    <h1 className="text-lg font-semibold">Duration: {duration}</h1>
+                    <h1 className="text-lg text-[#627382] font-semibold">Category:{category}</h1>
+                    <h1 className="text-lg text-[#627382] font-semibold">Duration: {duration}</h1>
                     <p className='text-lg text-[#627382]'>{description}</p>
 
                     <div className="flex items-center gap-2">
@@ -37,32 +38,34 @@ const MyAddedCourseDetails = () => {
                             className="w-8 h-8 rounded-full object-cover border border-gray-300"
                         />
                         <h3 className='text-xl font-bold border-b border-gray-300 pb-2'>Instructor: <span className="font-semibold text-gray-700">{name}</span></h3>
-                        
-                        
+
+
 
                     </div>
 
                     <div className="md:mt-15 mt-5 md:gap-3 flex justify-between items-center">
                         <div className='text-center'>
-                            <i class="fa-solid text-[#00d390] text-xl fa-download"></i>
-                            <p className='text-lg'>Total Purchases</p>
-                            <p className="text-black font-bold text-2xl md:text-4xl"> {purchases}</p>
+                            <i class="fa-solid text-[#00d390] text-xl fa-clock"></i>
+                            <p className='text-lg'>Duration</p>
+                            <p className="text-black font-bold text-xl md:text-xl"> {duration}</p>
+                        </div>
+                        <div className='text-center'>
+                            <i class="fa-solid fa-dollar-sign text-[#FF8811] text-xl"></i>
+                            <p className='text-lg'>Price</p>
+                            <p className="text-black font-bold text-xl md:text-xl"> {price}</p>
                         </div>
                         <div className='text-center'>
                             <i class="fa-solid fa-star text-[#FF8811] text-xl"></i>
-                            <p className='text-lg'>Ratings</p>
-                            <p className="text-black font-bold text-2xl md:text-4xl"> {ratingAvg}</p>
-                        </div>
-                        <div className='text-center'>
-                            <i class="fa-solid fa-thumbs-up text-[#FF8811] text-xl"></i>
-                            <p className='text-lg'>Reviews</p>
-                            <p className="text-black font-bold  text-2xl md:text-4xl"> {reviews}</p>
+                            <p className='text-lg'>Featured</p>
+                            <p className="text-black font-bold  text-xl md:text-xl"> Yes</p>
                         </div>
                     </div>
-                    <div className="card-actions mt-5">
+                    {/* <div className="card-actions mt-5">
 
-                        <button onClick={() => handleInstall(_id)} className="btn text-2xl border-1 border-black font-bold rounded-lg text-black bg-[#00d390] mx-auto">Enroll Now  ${price}</button>
-                    </div>
+                        <button onClick={() => handleInstall(_id)} className="btn text-2xl font-bold rounded-lg text-black bg-[#00d390] mx-auto">Update</button>
+
+                        <button onClick={() => handleInstall(_id)} className="btn text-2xl  font-bold rounded-lg text-black bg-[#d32e00] mx-auto">Remove</button>
+                    </div> */}
                 </div>
             </div>
             <div className=' mt-5'>

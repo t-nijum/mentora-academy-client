@@ -35,7 +35,11 @@ const MyAddedCourses = () => {
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:mt-10 p-3  md:max-w-[2500px] mx-auto'>
                         {
                             // courses.map(singleAppData => <OurApp singleAppData={singleAppData} key={singleAppData.id}></OurApp>)
-                            myFilteredCourses.map(myAddedCourse => <MyAddedCourseCard myAddedCourse={myAddedCourse} key={myAddedCourse._id}></MyAddedCourseCard>)
+                            myFilteredCourses.map(myAddedCourse => <MyAddedCourseCard myAddedCourse={myAddedCourse} 
+                            key={myAddedCourse._id}
+                            myFilteredCourses= {myFilteredCourses}
+                            setMyFilteredCourses={setMyFilteredCourses}
+                            ></MyAddedCourseCard>)
                         }
                     </div>
                 </Suspense>

@@ -61,7 +61,7 @@ const AddNewCourse = () => {
                             Share your knowledge by creating a new course. Fill in the course details carefully, including the title, image URL, price, duration, category, and description , isFeatured.
                         </p>
                     </div>
-                    <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+                    <div className="card bg-base-100 md:w-[1000px] max-w-sm shrink-0 shadow-2xl md:[1000px] border-2 border-red-500">
                         <div className="card-body">
                             <form onSubmit={handleAddNewCourse}>
                                 <fieldset className="fieldset">
@@ -79,6 +79,9 @@ const AddNewCourse = () => {
 
                                     <label className="label">Course Price</label>
                                     <input required type="text" name="price" className="input" placeholder='Course Price (USD)' />
+
+                                    <label className="label">Is Course Featured</label>
+                                    <input required type="text" name="price" className="input" placeholder='Yes or No' />
 
                                     <label className="label">Course Description</label>
                                     <input required type="text" name="description" className="input" placeholder='Course Description' />
