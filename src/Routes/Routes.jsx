@@ -17,6 +17,8 @@ import CourseDetails from '../pages/CourseDetails/CourseDetails';
 import Courses from '../pages/Courses/Courses';
 import AddNewCourse from '../pages/AddNewCourse/AddNewCourse';
 import MyAddedCourses from '../pages/MyAddedCourses/MyAddedCourses';
+import MyAddedCourseDetails from '../pages/MyAddedCourseDetails/MyAddedCourseDetails';
+// import MyFilteredCourses from '../pages/MyFilteredCourses/MyFilteredCourses';
 
 export const router = createBrowserRouter([
   {
@@ -81,6 +83,11 @@ export const router = createBrowserRouter([
         Component: CourseDetails
       },
       {
+        path: '/myAddedCourseDetails/:id',
+        loader: ({params}) => fetch(`http://localhost:3000/add_new_courses/${params.id}`),
+        Component: MyAddedCourseDetails
+      },
+      {
         path: '/addNewCourses',
         Component: AddNewCourse
       },
@@ -88,6 +95,11 @@ export const router = createBrowserRouter([
         path: '/myAddedCourses',
         Component: MyAddedCourses
       },
+      // {
+      //   path: '/myFilteredCourses',
+      //   element: <MyFilteredCourses></MyFilteredCourses>
+      // },
+      
   
     ]
   },

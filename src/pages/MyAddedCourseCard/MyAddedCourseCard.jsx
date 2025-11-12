@@ -1,0 +1,32 @@
+import React from 'react';
+import { FaShoppingCart } from 'react-icons/fa';
+import { Link } from 'react-router';
+
+const MyAddedCourseCard = ({ myAddedCourse }) => {
+    const { _id, image, title, description, price, purchases, instructor_name, instructor_email, photo, ratingAvg, duration, catagory } = myAddedCourse;
+
+    
+    
+    return (
+        <div className='rounded-xl'>
+            <div className="card md:w-[350px] bg-base-100 w-[370px] mx-auto shadow-xl p-5">
+                <figure className="p-4 bg-gray-100 w-2/3 mx-auto mt-2">
+                    <img className="h-[150px]" src={image} alt="Course Photo" />
+                </figure>
+
+                <div className="card-body">
+                    <h2 className="card-title text-center">{title}</h2>
+                    <p>{description}</p>
+                    <div className="card-actions flex justify-between items-center">
+                        <button className="btn bg-[#F1F5E8] text-[#00D390]"><FaShoppingCart /> {price}$</button>
+                        <button className="btn bg-[#FFF0E1] text-[#FF8811]"><i class="fa-solid fa-star"></i> {ratingAvg}</button>
+                    </div>
+                </div>
+                <Link to={`/myAddedCourseDetails/${_id}`}><button className="btn bg-[#FFF0E1] text-[#FF8811] w-full">Course Details</button> </Link>
+            </div>
+
+        </div>
+    );
+};
+
+export default MyAddedCourseCard;

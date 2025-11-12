@@ -19,17 +19,19 @@ const AddNewCourse = () => {
         const description = form.description.value;
         const instructor = form.instructor.value;
         const email = form.email.value;
-        console.log(instructor,title,email, category, image, price, duration, description);
+        const photo = form.photo.value;
+        console.log(instructor,title,email, category, image, price, duration, description, photo);
 
         const addNewCourse = {
-            course_title: title,
-            course_category: category,
-            course_duration : duration,
-            course_image: image,
-            course_price: price,
-            course_description : description,
-            instructor_name: instructor,
-            instructor_email: email,
+            title: title,
+            category: category,
+            duration : duration,
+            image: image,
+            price: price,
+            description : description,
+            name: instructor,
+            email: email,
+            photo: photo,
         }
         fetch('http://localhost:3000/add_new_courses',{
             method: 'POST',
@@ -80,19 +82,15 @@ const AddNewCourse = () => {
 
                                     <label className="label">Course Description</label>
                                     <input required type="text" name="description" className="input" placeholder='Course Description' />
-
-                                    <button className="btn btn-neutral text-black font-bold text-xl mt-4 border-[#e1b813] bg-[#b413e1 bg-[#dde113]">Instructor Information</button>
                                     {/* Name and Photo */}
-                                    <label className="label">Name</label>
+                                    <label className="label">Instructor Name</label>
                                     <input required type="text" name="instructor" className="input" readOnly defaultValue={user?.displayName || ""}  />
-
-                                    <label className="label">Your Photo</label>
-                                    <input required type="text" name="photo" className="input" readOnly defaultValue={user?.photoURL  || ""} />
-                                    {/* Email and Pass */}
-                                    <label className="label">Email</label>
+                                    <label className="label">Instructor Photo</label>
+                                    <input required type="text" name="photo" className="input" readOnly defaultValue={user?.photoURL || ""} />
+                                    <label className="label">Instructor Email</label>
                                     <input required type="email" name="email" className="input" readOnly defaultValue={user?.email || ""} />
 
-                                    <div><a className="link link-hover text-blue-700">*Based on user login info!</a></div>
+                                    
 
                                     <button type="submit" className="btn btn-neutral font-bold text-2xl text-black mt-4 border-[#2be113] bg-[#b413e1 bg-[#1de113]">Confirm Add Course</button>
 
