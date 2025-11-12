@@ -3,8 +3,6 @@ import { createBrowserRouter } from "react-router";
 import Root from '../pages/Root/Root';
 import ErrorPage from '../pages/ErrorPage/ErrorPage';
 import Home from '../pages/Home/Home';
-import AppDetails from '../pages/AppDetails/AppDetails';
-import InstalledApps from '../pages/InstalledApps/InstalledApps';
 import Login from '../pages/Login/Login';
 import Register from '../pages/Register/Register';
 import PrivateRoute from '../provider/PrivateRoute';
@@ -18,6 +16,7 @@ import AddNewCourse from '../pages/AddNewCourse/AddNewCourse';
 import MyAddedCourses from '../pages/MyAddedCourses/MyAddedCourses';
 import MyAddedCourseDetails from '../pages/MyAddedCourseDetails/MyAddedCourseDetails';
 import UpdateCourse from '../pages/UpdateCourse/UpdateCourse.jsx';
+import EnrolledCourses from '../pages/EnrolledCourses/EnrolledCourses.jsx';
 
 export const router = createBrowserRouter([
   {
@@ -28,19 +27,6 @@ export const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
-        loader: () => fetch('/appsData.json'),
-        hydrateFallbackElement: <Loading></Loading>,
-        
-      },
-      {
-        path: '/installed',
-        element: <PrivateRoute> <InstalledApps></InstalledApps> </PrivateRoute>,
-        loader: () => fetch('/appsData.json'),
-        hydrateFallbackElement: <Loading></Loading>,
-      },
-      {
-        path: '/appDetails/:id',
-        element: <PrivateRoute> <AppDetails></AppDetails> </PrivateRoute>,
         loader: () => fetch('/appsData.json'),
         hydrateFallbackElement: <Loading></Loading>,
         
@@ -70,26 +56,36 @@ export const router = createBrowserRouter([
         Component: TopCourses
       },
       {
+        path: '/enrolled-courses',
+        element: <PrivateRoute><EnrolledCourses></EnrolledCourses></PrivateRoute>
+      },
+      {
         path: '/courseDetails/:id',
         loader: ({params}) => fetch(`http://localhost:3000/courses/${params.id}`),
-        Component: CourseDetails
+        element: <PrivateRoute><CourseDetails></CourseDetails></PrivateRoute>,
+        hydrateFallbackElement: <Loading></Loading>,
+        // Component: CourseDetails
       },
       {
         path: '/myAddedCourseDetails/:id',
         loader: ({params}) => fetch(`http://localhost:3000/add_new_courses/${params.id}`),
-        Component: MyAddedCourseDetails
+        element: <PrivateRoute><MyAddedCourseDetails></MyAddedCourseDetails></PrivateRoute>,
+        hydrateFallbackElement: <Loading></Loading>,
+        // Component: MyAddedCourseDetails
       },
       {
         path: '/addNewCourses',
-        Component: AddNewCourse
+        element: <PrivateRoute><AddNewCourse></AddNewCourse></PrivateRoute>,
+        // Component: AddNewCourse
       },
       {
         path: '/myAddedCourses',
-        Component: MyAddedCourses
+        element: <PrivateRoute><MyAddedCourses></MyAddedCourses></PrivateRoute>,
+        // Component: MyAddedCourses
       },
       {
         path: '/updateCourse/:id',
-        element: <UpdateCourse />
+        element: <PrivateRoute><UpdateCourse></UpdateCourse></PrivateRoute>,
       },
     ]
   },

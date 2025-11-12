@@ -1,22 +1,42 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router';
-import { addToStoreDb } from '../../Utility/addToDb';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../../provider/AuthProvider';
 
 const CourseDetails = () => {
     const course = useLoaderData()
     console.log(course);
-    const { _id, image, title, category, description, courseDetails,  ratingAvg, purchases, reviews, price, instructor } = course;
+    const { _id, image, title, category, description, courseDetails, ratingAvg, purchases, reviews, instructor } = course;
 
-    const handleInstall = id => {
-        addToStoreDb(id);
+    const { user } = useContext(AuthContext);
+    console.log(user);
 
-        Swal.fire({
-            title: "Enrolled Completed!",
-            icon: "success",
-            draggable: true
-        });
-    }
+    const handleEnroll = () => {
+        if (!user) {
+            Swal.fire("Please log in first!");
+            return;
+        }
+
+        const enrolledData = {
+            ...course,
+            userEmail: user.email,
+            enrolledAt: new Date(),
+        };
+
+        fetch("http://localhost:3000/enrolledCourses", {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify(enrolledData),
+        })
+            .then((res) => res.json())
+            .then(() => {
+                Swal.fire("Success!", "You have enrolled in this course!", "success");
+            })
+            .catch((err) => {
+                console.error(err);
+                Swal.fire("Already Enrolled!", "You have already been enrolled in this course.", "error");
+            });
+    };
 
     return (
         <div className='mx-5 md:max-w-[1100px] md:mx-auto card bg-base-100 shadow-lg border-gray-200 p-5 mt-3 md:mt-10'>
@@ -47,9 +67,13 @@ const CourseDetails = () => {
                         </div>
                     </div>
                     <div className="card-actions mt-5">
-        
-                                <button onClick={() => handleInstall(_id)} className="btn text-2xl border-1 border-black font-bold rounded-lg text-black bg-[#00d390] mx-auto">Enroll Now  ${price}</button>
-                            </div>
+                        <button
+                            onClick={handleEnroll}
+                            className="btn text-2xl font-bold rounded-lg text-black bg-[#FF8811] mx-auto"
+                        >
+                            Enroll Now!
+                        </button>
+                    </div>
                 </div>
             </div>
             <div className=' mt-5'>

@@ -57,8 +57,7 @@ const MyAddedCourseCard = ({ myAddedCourse, myFilteredCourses, setMyFilteredCour
                 </div>
                 <div className='flex justify-between w-full'>
 
-                    <Link to={`/myAddedCourseDetails/${_id}`}><button className="btn text-lg font-bold rounded-lg mx-auto bg-[#FFF0E1]  text-[#FF8811]">Details</button> </Link>
-
+                    <Link to={`/myAddedCourseDetails/${_id}`}><button className="btn text-lg font-bold rounded-lg mx-auto bg-[#FFF0E1] mr-1  text-[#FF8811]">Details</button> </Link>
                     <Link to={`/updateCourse/${_id}`}><button className="btn text-lg font-bold rounded-lg bg-[#E0FFF7]  text-[#00d390] mx-auto">Update</button></Link>
 
                     <button onClick={() => handleDeleteCourse(myAddedCourse._id)} className="btn text-lg  font-bold rounded-lg bg-[#FFEAEA] text-[#be1f1f] mx-auto">Remove</button>

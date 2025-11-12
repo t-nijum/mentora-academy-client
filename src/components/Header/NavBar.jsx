@@ -24,8 +24,8 @@ const NavBar = () => {
 
     const links = 
     <>
-        <Link to='/'><li className='ml-4 md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#b413e1] to-[#8a0cb0]'>Home</li></Link>
-        <Link to='/courses'><li className='ml-4 md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#b413e1] to-[#8a0cb0] '>Courses</li></Link>
+        <Link to='/'><li className='ml-4 md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#FF8811] via-[#FFB75E] to-[#ff9e42]'>Home</li></Link>
+        <Link to='/courses'><li className='ml-4 md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#FF8811] via-[#FFB75E] to-[#ff9e42] '>Courses</li></Link>
         {/* <Link to='/installed'><li className='ml-4 md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#b413e1] to-[#8a0cb0]'>Enrolled</li> </Link>
         <Link to='/myFilteredCourses'><li className='ml-4 md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#b413e1] to-[#8a0cb0]'>FilteredCourses</li> </Link> */}
         {/* Private route when user is login then show this */}
@@ -36,13 +36,13 @@ const NavBar = () => {
         } */}
 
         {user && (
-            <div className="dropdown dropdown-hover">
+            <div className="dropdown dropdown-hover ">
                 {/* This label is the visible Dashboard text */}
-                <label tabIndex={0}  className="cursor-pointer ml-4 md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#b413e1] to-[#8a0cb0]">Dashboard</label>
+                <label tabIndex={0}  className="cursor-pointer ml-4 md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#FF8811] via-[#FFB75E] to-[#ff9e42]">Dashboard</label>
                 {/* Dropdown content */}
-                <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 md:text-lg font-semibold text-[#b413e1]">
+                <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 md:text-lg font-semibold text-[#FF8811]">
                     <li><Link to="/profile">Profile</Link></li>
-                    <li><Link to="/dashboard/enrolled">Enrolled Courses</Link></li>
+                    <li><Link to="/enrolled-courses">Enrolled Courses</Link></li>
                     <li><Link to="/addNewCourses">Add New Course</Link></li>
                     <li><Link to="/myAddedCourses">My Added Courses</Link></li>
                 </ul>
@@ -85,7 +85,7 @@ const NavBar = () => {
                     </Link>
                     <div>
                         {
-                            user ? <Link to='/login'><a onClick={handleLogout} className="btn text-white bg-gradient-to-r from-[#b413e1] to-[#8a0cb0]" href=""><BiLogOut /> Logout</a></Link> : <Link to='/login'><a className="btn text-white bg-gradient-to-r from-[#b413e1] to-[#8a0cb0]" href=""> <TbLogin2 />Login</a></Link>
+                            user ? <Link to='/login'><a onClick={handleLogout} className="btn text-white bg-gradient-to-r from-[#ffcc00] to-[#ff00e4]" href=""><BiLogOut /> Logout</a></Link> : <Link to='/login'><a className="btn text-white bg-gradient-to-r from-[#ffcc00] to-[#ff00e4]" href=""> <TbLogin2 />Login</a></Link>
                         }
                     </div>
                 </div>

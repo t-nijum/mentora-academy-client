@@ -4,28 +4,51 @@ import { MdOutlineReadMore } from 'react-icons/md';
 import { Link } from 'react-router';
 
 const CourseCard = ({ course }) => {
-    const { _id, image, title, description, price, ratingAvg} = course
+    const { _id, image, title, description, price, ratingAvg } = course
     return (
+        <div className="rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+            <div className="flex flex-col h-[470px]">
+                {/* Image */}
+                <figure className="bg-gray-50 rounded-t-2xl h-[180px] flex justify-center items-center overflow-hidden">
+                    <img
+                        className="h-full object-contain hover:scale-105 transition-transform duration-300"
+                        src={image}
+                        alt={title}
+                    />
+                </figure>
 
-            <div className='rounded-xl'>
-                <div className="card md:w-[350px] bg-base-100 w-[370px] mx-auto shadow-xl p-5">
-                    <figure className="p-4 bg-gray-100 w-2/3 mx-auto mt-2">
-                        <img className="h-[150px]" src={image} alt="Course Photo" />
-                    </figure>
-
-                    <div className="card-body">
-                        <h2 className="card-title text-center">{title}</h2>
-                        <p>{description}</p>
-                        <div className="card-actions flex justify-between items-center">
-                            <button className="btn bg-[#F1F5E8] text-[#00D390]"><FaShoppingCart /> {price}$</button>
-                            <button className="btn bg-[#FFF0E1] text-[#FF8811]"><i class="fa-solid fa-star"></i> {ratingAvg}</button>
-                        </div>
+                {/* Content */}
+                <div className="flex-1 flex flex-col justify-between p-5">
+                    <div>
+                        <h2 className="text-lg font-semibold text-gray-800 text-center line-clamp-2 min-h-[50px]">
+                            {title}
+                        </h2>
+                        <p className="text-gray-600 text-sm mt-2 line-clamp-3 min-h-[60px] text-center">
+                            {description}
+                        </p>
                     </div>
-                    <Link to={`/courseDetails/${_id}`}><button className="btn text-lg font-bold rounded-lg bg-[#FFF0E1] text-[#FF8811] w-full">Course Details</button> </Link>
-                </div>
-                
-            </div>
 
+                    {/* Buttons */}
+                    <div className="flex justify-between items-center mt-5">
+                        <button className="btn bg-[#F1F5E8] text-[#00D390] border-none w-[48%] text-sm">
+                            <FaShoppingCart className="mr-2" /> ${price}
+                        </button>
+                        <button className="btn bg-[#FFF0E1] text-[#FF8811] border-none w-[48%] text-sm">
+                            <i className="fa-solid fa-star"></i> {ratingAvg}
+                        </button>
+                    </div>
+
+                    {/* Details Button */}
+                    <Link to={`/courseDetails/${_id}`} className="mt-4">
+                        <button className="w-full py-2.5 rounded-lg bg-gradient-to-r from-[#FF8811] via-[#ff9e42] to-[#FF8811] 
+                       text-white font-semibold tracking-wide shadow-md hover:shadow-lg
+                       transition-all duration-300 hover:scale-[1.03] active:scale-[0.97]">
+                            View Details
+                        </button>
+                    </Link>
+                </div>
+            </div>
+        </div>
     );
 };
 
