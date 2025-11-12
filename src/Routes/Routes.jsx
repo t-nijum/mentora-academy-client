@@ -18,7 +18,6 @@ import Courses from '../pages/Courses/Courses';
 import AddNewCourse from '../pages/AddNewCourse/AddNewCourse';
 import MyAddedCourses from '../pages/MyAddedCourses/MyAddedCourses';
 import MyAddedCourseDetails from '../pages/MyAddedCourseDetails/MyAddedCourseDetails';
-// import MyFilteredCourses from '../pages/MyFilteredCourses/MyFilteredCourses';
 
 export const router = createBrowserRouter([
   {
@@ -95,12 +94,6 @@ export const router = createBrowserRouter([
         path: '/myAddedCourses',
         Component: MyAddedCourses
       },
-      // {
-      //   path: '/myFilteredCourses',
-      //   element: <MyFilteredCourses></MyFilteredCourses>
-      // },
-      
-  
     ]
   },
 ]);
