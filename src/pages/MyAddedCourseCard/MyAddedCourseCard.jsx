@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { BiDollar } from 'react-icons/bi';
 import { FaClock } from 'react-icons/fa';
 import { IoPricetagsOutline } from 'react-icons/io5';
@@ -9,7 +8,7 @@ import { Link } from 'react-router';
 import Swal from 'sweetalert2';
 
 const MyAddedCourseCard = ({ myAddedCourse, myFilteredCourses, setMyFilteredCourses }) => {
-    const { _id, image, title, description, price, purchases, instructor_name, instructor_email, photo, ratingAvg, duration, catagory } = myAddedCourse;
+    const { _id, image, title, description, price, duration} = myAddedCourse;
 
     const handleDeleteCourse = (_id) => {
         Swal.fire({

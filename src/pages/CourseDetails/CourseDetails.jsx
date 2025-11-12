@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 const CourseDetails = () => {
     const course = useLoaderData()
     console.log(course);
-    const { _id, image, title, category, description, duration, courseDetails, downloads, ratingAvg, purchases, reviews, price, instructor } = course;
+    const { _id, image, title, category, description, courseDetails,  ratingAvg, purchases, reviews, price, instructor } = course;
 
     const handleInstall = id => {
         addToStoreDb(id);

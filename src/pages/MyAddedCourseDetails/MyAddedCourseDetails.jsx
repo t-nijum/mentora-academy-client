@@ -1,23 +1,23 @@
 import React from 'react';
 import { useLoaderData } from 'react-router';
-import { addToStoreDb } from '../../Utility/addToDb';
+// import { addToStoreDb } from '../../Utility/addToDb';
 import Swal from 'sweetalert2';
 
 const MyAddedCourseDetails = () => {
     const myAddedCourse = useLoaderData()
     console.log(myAddedCourse);
 
-    const { _id, name, image, photo, title, category, description, duration, courseDetails, downloads, ratingAvg, purchases, reviews, price, instructor } = myAddedCourse;
+    const { _id, name, image, photo, title, category, description, duration, price,  } = myAddedCourse;
 
-    const handleInstall = id => {
-        addToStoreDb(id);
+    // const handleInstall = id => {
+    //     addToStoreDb(id);
 
-        Swal.fire({
-            title: "Enrolled Completed!",
-            icon: "success",
-            draggable: true
-        });
-    }
+    //     Swal.fire({
+    //         title: "Enrolled Completed!",
+    //         icon: "success",
+    //         draggable: true
+    //     });
+    // }
 
     return (
         <div className='mx-5 md:max-w-[1100px] md:mx-auto card bg-base-100 shadow-lg border-gray-200 p-5 mt-3 md:mt-10'>

@@ -3,7 +3,6 @@ import React, { Suspense, use, useEffect, useState } from 'react';
 import { Link } from 'react-router';
 import MyAddedCourseCard from '../MyAddedCourseCard/MyAddedCourseCard';
 import { AuthContext } from '../../provider/AuthProvider';
-import { div } from 'framer-motion/client';
 
 // const myAddedCoursesPromise = fetch('http://localhost:3000/add_new_courses')
 //     .then(res => res.json())
@@ -34,7 +33,6 @@ const MyAddedCourses = () => {
                 <Suspense fallback={<span>Loading...</span>}>
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:mt-10 p-3  md:max-w-[2500px] mx-auto'>
                         {
-                            // courses.map(singleAppData => <OurApp singleAppData={singleAppData} key={singleAppData.id}></OurApp>)
                             myFilteredCourses.map(myAddedCourse => <MyAddedCourseCard myAddedCourse={myAddedCourse} 
                             key={myAddedCourse._id}
                             myFilteredCourses= {myFilteredCourses}
