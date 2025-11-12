@@ -3,7 +3,7 @@ import { createBrowserRouter } from "react-router";
 import Root from '../pages/Root/Root';
 import ErrorPage from '../pages/ErrorPage/ErrorPage';
 import Home from '../pages/Home/Home';
-import AllApps from '../pages/AllApps/AllApps';
+// import AllApps from '../pages/AllApps/AllApps';
 import AppDetails from '../pages/AppDetails/AppDetails';
 import InstalledApps from '../pages/InstalledApps/InstalledApps';
 import Login from '../pages/Login/Login';
@@ -18,6 +18,7 @@ import Courses from '../pages/Courses/Courses';
 import AddNewCourse from '../pages/AddNewCourse/AddNewCourse';
 import MyAddedCourses from '../pages/MyAddedCourses/MyAddedCourses';
 import MyAddedCourseDetails from '../pages/MyAddedCourseDetails/MyAddedCourseDetails';
+import UpdateCourse from '../pages/UpdateCourse/UpdateCourse.jsx';
 
 export const router = createBrowserRouter([
   {
@@ -32,13 +33,13 @@ export const router = createBrowserRouter([
         hydrateFallbackElement: <Loading></Loading>,
         
       },
-      {
-        path: '/games',
-        Component: AllApps,
-        loader: () => fetch("/appsData.json"),
-        hydrateFallbackElement: <Loading></Loading>,
+      // {
+      //   path: '/games',
+      //   Component: AllApps,
+      //   loader: () => fetch("/appsData.json"),
+      //   hydrateFallbackElement: <Loading></Loading>,
         
-      },
+      // },
       {
         path: '/installed',
         element: <PrivateRoute> <InstalledApps></InstalledApps> </PrivateRoute>,
@@ -93,6 +94,10 @@ export const router = createBrowserRouter([
       {
         path: '/myAddedCourses',
         Component: MyAddedCourses
+      },
+      {
+        path: '/updateCourse/:id',
+        element: <UpdateCourse />
       },
     ]
   },

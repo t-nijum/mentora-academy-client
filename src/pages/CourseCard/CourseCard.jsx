@@ -21,7 +21,7 @@ const CourseCard = ({ course }) => {
                             <button className="btn bg-[#FFF0E1] text-[#FF8811]"><i class="fa-solid fa-star"></i> {ratingAvg}</button>
                         </div>
                     </div>
-                    <Link to={`/courseDetails/${_id}`}><button className="btn bg-[#FFF0E1] text-[#FF8811] w-full">Course Details</button> </Link>
+                    <Link to={`/courseDetails/${_id}`}><button className="btn text-lg font-bold rounded-lg bg-[#FFF0E1] text-[#FF8811] w-full">Course Details</button> </Link>
                 </div>
                 
             </div>

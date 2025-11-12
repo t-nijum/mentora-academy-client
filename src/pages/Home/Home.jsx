@@ -1,6 +1,6 @@
 import React from 'react';
 import Banner from '../../components/Banner/Banner';
-import OurApps from '../OurApps/OurApps';
+// import OurApps from '../OurApps/OurApps';
 import { useLoaderData } from 'react-router';
 import TopCourses from '../TopCourses/TopCourses';
 

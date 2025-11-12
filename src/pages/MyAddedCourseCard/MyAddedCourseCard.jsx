@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
-import { FaShoppingCart } from 'react-icons/fa';
+import { BiDollar } from 'react-icons/bi';
+import { FaClock } from 'react-icons/fa';
+import { IoPricetagsOutline } from 'react-icons/io5';
+import { MdPriceCheck } from 'react-icons/md';
+import { RiExchangeDollarLine, RiMoneyDollarCircleFill } from 'react-icons/ri';
+import { TbCalendarDollar } from 'react-icons/tb';
 import { Link } from 'react-router';
 import Swal from 'sweetalert2';
 
-const MyAddedCourseCard = ({ myAddedCourse,myFilteredCourses, setMyFilteredCourses }) => {
+const MyAddedCourseCard = ({ myAddedCourse, myFilteredCourses, setMyFilteredCourses }) => {
     const { _id, image, title, description, price, purchases, instructor_name, instructor_email, photo, ratingAvg, duration, catagory } = myAddedCourse;
 
     const handleDeleteCourse = (_id) => {
@@ -47,15 +52,17 @@ const MyAddedCourseCard = ({ myAddedCourse,myFilteredCourses, setMyFilteredCours
                     <h2 className="card-title text-center">{title}</h2>
                     <p>{description}</p>
                     <div className="card-actions flex justify-between items-center">
-                        <button className="btn bg-[#F1F5E8] text-[#00D390]"><FaShoppingCart /> {price}$</button>
-                        <button className="btn bg-[#FFF0E1] text-[#FF8811]"><i class="fa-solid fa-star"></i> {ratingAvg}</button>
+                        <button className="btn rounded-lg bg-[#F1F5E8] text-[#00D390]"><IoPricetagsOutline />{price}</button>
+                        <button className="btn rounded-lg bg-[#FFF0E1] text-[#FF8811]"><FaClock />{duration}</button>
                     </div>
                 </div>
                 <div className='flex justify-between w-full'>
 
-                    <Link to={`/myAddedCourseDetails/${_id}`}><button className="btn text-lg font-bold rounded-lg mx-auto text-black bg-[#FF8811]">Details</button> </Link>
-                    <button className="btn text-lg font-bold rounded-lg text-black bg-[#00d390] mx-auto">Update</button>
-                    <button onClick={() => handleDeleteCourse(myAddedCourse._id)} className="btn text-lg  font-bold rounded-lg text-black bg-[#be1f1f] mx-auto">Remove</button>
+                    <Link to={`/myAddedCourseDetails/${_id}`}><button className="btn text-lg font-bold rounded-lg mx-auto bg-[#FFF0E1]  text-[#FF8811]">Details</button> </Link>
+
+                    <Link to={`/updateCourse/${_id}`}><button className="btn text-lg font-bold rounded-lg bg-[#E0FFF7]  text-[#00d390] mx-auto">Update</button></Link>
+
+                    <button onClick={() => handleDeleteCourse(myAddedCourse._id)} className="btn text-lg  font-bold rounded-lg bg-[#FFEAEA] text-[#be1f1f] mx-auto">Remove</button>
                 </div>
             </div>
 
