@@ -31,6 +31,7 @@ const MyAddedCourses = () => {
 
     return (
         <div>
+            <title>My Added Courses</title>
             <h1 className='text-2xl md:text-3xl text-[#fcb500fa] ] font-bold text-center mt-5'>
                 My Added Courses: {myFilteredCourses.length}
             </h1>

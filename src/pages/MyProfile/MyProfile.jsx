@@ -6,7 +6,7 @@ const MyProfile = () => {
     const { user} = use(AuthContext);
     return (
         <div className="max-w-md mx-auto mt-10 p-6 rounded-xl shadow-md text-center mb-5 bg-base-100 border border-base-200 transition-colors duration-500">
-            <title>Mentora-My Profile</title>
+            <title>Dashboard/Profile</title>
             <img
                 src={`${user ? user.photoURL : '/user.png'}`}
                 alt="My Photo"

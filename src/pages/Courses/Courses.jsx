@@ -47,7 +47,7 @@ const Courses = () => {
 
     return (
         <div className="mt-10 px-4 md:mr-6">
-            <title>Mentora Academy-All Courses</title>
+            <title>All Courses</title>
             <div className="flex flex-col md:flex-row justify-between items-center">
                 <h2 className="text-3xl font-bold text-center mb-4 text-transparent bg-clip-text bg-gradient-to-r from-[#ffcc00] to-[#ff00e4]">
                     Total {filteredCourses.length} Courses Found

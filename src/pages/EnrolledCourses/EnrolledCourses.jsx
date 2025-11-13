@@ -1,25 +1,36 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../provider/AuthProvider';
 import Swal from 'sweetalert2';
-import { div } from 'framer-motion/client';
+import api from '../../api/api.js '
 
 const EnrolledCourses = () => {
     const [enrolledCourses, setEnrolledCourses] = useState([]);
+    const [loading, setLoading] = useState(true);
     const { user } = useContext(AuthContext);
 
+
     useEffect(() => {
-        if (user?.email) {
-            // fetch(`http://localhost:3000/enrolledCourses/user/${user.email}`)
-            fetch(`https://mentora-academy-server.vercel.app/enrolledCourses/user/${user.email}`)
-                .then(res => res.json())
-                .then(data => setEnrolledCourses(data))
-                .catch(err => console.error(err));
-        }
+        const fetchEnrolledCourses = async () => {
+            if (!user?.email) {
+                setLoading(false);
+                return;
+            }
+
+            try {
+                const { data } = await api.get(`/enrolledCourses/user/${user.email}`);
+                setEnrolledCourses(data);
+            } catch (err) {
+                console.error("Failed to fetch enrolled courses:", err);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchEnrolledCourses();
     }, [user]);
 
-    // Remove course function
-    const handleRemove = (id) => {
-        Swal.fire({
+    const handleRemove = async (id) => {
+        const result = await Swal.fire({
             title: 'Are you sure?',
             text: "This will remove the course from your enrolled list!",
             icon: 'warning',
@@ -27,43 +38,46 @@ const EnrolledCourses = () => {
             confirmButtonColor: '#d33',
             cancelButtonColor: '#3085d6',
             confirmButtonText: 'Yes, remove it!',
-        }).then((result) => {
-            if (result.isConfirmed) {
-                // fetch(`http://localhost:3000/enrolledCourses/${id}`, {
-                fetch(`https://mentora-academy-server.vercel.app/enrolledCourses/${id}`, {
-                    method: 'DELETE',
-                })
-                    .then(res => res.json())
-                    .then(() => {
-                        setEnrolledCourses(prev => prev.filter(course => course._id !== id));
-                        Swal.fire('Removed!', 'The course has been removed.', 'success');
-                    })
-                    .catch(err => {
-                        console.error(err);
-                        Swal.fire('Error', 'Failed to remove the course.', 'error');
-                    });
-            }
         });
+
+        if (result.isConfirmed) {
+            try {
+                await api.delete(`/enrolledCourses/${id}`);
+                setEnrolledCourses(prev => prev.filter(course => course._id !== id));
+                Swal.fire('Removed!', 'The course has been removed.', 'success');
+            } catch (err) {
+                console.error("Failed to remove course:", err);
+                Swal.fire('Error', 'Failed to remove the course.', 'error');
+            }
+        }
     };
 
+    // Loading state
+    if (loading) {
+        return <p className="text-center mt-10">Loading your enrolled courses...</p>;
+    }
+
+    // User not logged in
     if (!user) {
         return <p className="text-center mt-10">Please log in to see your enrolled courses.</p>;
     }
 
     return (
         <div className="max-w-6xl mx-auto flex flex-col gap-5 mb-5">
-            <h2 className="text-2xl md:text-3xl text-[#fcb500fa] font-bold text-center mt-5 ">My Enrolled Courses: {enrolledCourses.length}</h2>
+            <title>Enrolled Courses</title>
+            <h2 className="text-2xl md:text-3xl text-[#fcb500fa] font-bold text-center mt-5 ">
+                My Enrolled Courses: {enrolledCourses.length}
+            </h2>
 
             {enrolledCourses.length === 0 ? (
                 <div className="flex flex-col justify-center items-center h-64 text-center mt-10">
                     <img
-                            src="/apperror.png"
-                            alt="No installed apps"
-                            className="w-60 h-60 mb-4"
-                        />
-                        <p className=" mb-5 text-center">You haven't enrolled in any courses yet.</p>
+                        src="/apperror.png"
+                        alt="No enrolled courses"
+                        className="w-60 h-60 mb-4"
+                    />
+                    <p className="mb-5 text-center">You haven't enrolled in any courses yet.</p>
                 </div>
-
             ) : (
                 enrolledCourses.map((course) => (
                     <div

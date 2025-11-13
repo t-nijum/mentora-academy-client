@@ -9,7 +9,7 @@ const Home = () => {
 
   return (
     <div>
-      <title>Mentora Academy - Home</title>
+      <title>Home</title>
       {import.meta.env.VITE_name}
       <Banner></Banner>
       <Expertise></Expertise>

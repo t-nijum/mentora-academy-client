@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router";
 import Swal from "sweetalert2";
+import axiosInstance from "../../api/axios";
 
 const UpdateCourse = () => {
-  const { id } = useParams(); // get course id from URL
+  const { id } = useParams();
   const navigate = useNavigate();
 
   const [courseData, setCourseData] = useState({
@@ -12,47 +13,52 @@ const UpdateCourse = () => {
     price: "",
     duration: "",
     category: "",
-    image: ""
+    image: "",
   });
 
   // 🔹 Fetch existing data
   useEffect(() => {
-    // fetch(`http://localhost:3000/add_new_courses/${id}`)
-    fetch(`https://mentora-academy-server.vercel.app/add_new_courses/${id}`)
-      .then(res => res.json())
-      .then(data => setCourseData(data));
+    const fetchCourse = async () => {
+      try {
+        const res = await axiosInstance.get(`/add_new_courses/${id}`);
+        setCourseData(res.data);
+      } catch (error) {
+        console.error("Error fetching course:", error);
+        Swal.fire("Error", "Failed to fetch course data.", "error");
+      }
+    };
+
+    fetchCourse();
   }, [id]);
 
-  // 🔹 Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setCourseData({ ...courseData, [name]: value });
   };
 
-  // 🔹 Submit updated data
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // fetch(`http://localhost:3000/add_new_courses/${id}`, {
-    fetch(`https://mentora-academy-server.vercel.app/add_new_courses/${id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(courseData),
-    })
-      .then(res => res.json())
-      .then(data => {
-        if (data.modifiedCount > 0) {
-          Swal.fire("Updated!", "Course updated successfully.", "success");
-          navigate("/myAddedCourses"); // redirect after update
-        }
-      });
+    try {
+      const res = await axiosInstance.put(`/add_new_courses/${id}`, courseData);
+
+      if (res.data.modifiedCount > 0) {
+        Swal.fire("Updated!", "Course updated successfully.", "success");
+        navigate("/myAddedCourses");
+      } else {
+        Swal.fire("No Changes", "No updates were made to the course.", "info");
+      }
+    } catch (error) {
+      console.error("Error updating course:", error);
+      Swal.fire("Error", "Failed to update the course.", "error");
+    }
   };
 
   return (
     <div className="max-w-3xl mx-auto bg-base-100 p-8 rounded-lg shadow-md mt-10 transition-colors duration-500">
-      <h2 className="text-3xl font-bold text-center mb-6">Update Course</h2>
+      <h2 className="text-3xl font-bold text-center mb-6 text-[#fcb500fa]">
+        Update Course
+      </h2>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <input

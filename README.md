@@ -87,6 +87,7 @@ This project delivers a **modern, responsive, and interactive educational experi
 |------------------|------------------|
 | **Frontend**      | React, React Router |
 | **Styling**       | Tailwind CSS, DaisyUI |
+| **API Call**      | AXIOS |
 | **Animations**    | Framer Motion |
 | **Backend**       | Node.js, Express.js, MongoDB |
 | **Auth & Data**   | Firebase Authentication |

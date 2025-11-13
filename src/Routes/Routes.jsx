@@ -80,10 +80,10 @@ export const router = createBrowserRouter([
       },
       {
         path: '/myAddedCourseDetails/:id',
-        loader: ({ params }) => fetch(`http://localhost:3000/add_new_courses/${params.id}`),
+        // loader: ({ params }) => fetch(`http://localhost:3000/add_new_courses/${params.id}`),
+        loader: ({ params }) => fetch(`https://mentora-academy-server.vercel.app/add_new_courses/${params.id}`),
         element: <PrivateRoute><MyAddedCourseDetails></MyAddedCourseDetails></PrivateRoute>,
         hydrateFallbackElement: <Loading></Loading>,
-        // Component: MyAddedCourseDetails
       },
       {
         path: '/addNewCourses',
