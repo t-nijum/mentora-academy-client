@@ -4,6 +4,7 @@ import { Link, Links } from 'react-router';
 import { AuthContext } from '../../provider/AuthProvider';
 import { TbLogin2 } from 'react-icons/tb';
 import { toast } from 'react-toastify';
+import ThemeToggle from '../../pages/ThemeToggle/ThemeToggle';
 
 const NavBar = () => {
     const { user, logout } = use(AuthContext);
@@ -22,37 +23,27 @@ const NavBar = () => {
 
     }
 
-    const links = 
-    <>
-        <Link to='/'><li className='ml-4 md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#FF8811] via-[#FFB75E] to-[#ff9e42]'>Home</li></Link>
-        <Link to='/courses'><li className='ml-4 md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#FF8811] via-[#FFB75E] to-[#ff9e42] '>Courses</li></Link>
-        {/* <Link to='/installed'><li className='ml-4 md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#b413e1] to-[#8a0cb0]'>Enrolled</li> </Link>
-        <Link to='/myFilteredCourses'><li className='ml-4 md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#b413e1] to-[#8a0cb0]'>FilteredCourses</li> </Link> */}
-        {/* Private route when user is login then show this */}
-        {/* {
-            user && <>
-                <Link to='/profile'><li className='ml-4 md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#b413e1] to-[#8a0cb0]'>Profile</li> </Link>
-            </>
-        } */}
+    const links =
+        <>
+            <Link to='/'><li className='ml-4 md:text-3xl font-bold text-[#FF8811]'>Home</li></Link>
+            <Link to='/courses'><li className='ml-4 md:text-3xl font-bold text-[#FF8811] '>Courses</li></Link>
 
-        {user && (
-            <div className="dropdown dropdown-hover ">
-                {/* This label is the visible Dashboard text */}
-                <label tabIndex={0}  className="cursor-pointer ml-4 md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#FF8811] via-[#FFB75E] to-[#ff9e42]">Dashboard</label>
-                {/* Dropdown content */}
-                <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 md:text-lg font-semibold text-[#FF8811]">
-                    <li><Link to="/profile">Profile</Link></li>
-                    <li><Link to="/enrolled-courses">Enrolled Courses</Link></li>
-                    <li><Link to="/addNewCourses">Add New Course</Link></li>
-                    <li><Link to="/myAddedCourses">My Added Courses</Link></li>
-                </ul>
-            </div>
-        )}
-    </>
+            {user && (
+                <div className="dropdown dropdown-hover ">
+                    <label tabIndex={0} className="cursor-pointer ml-4 md:text-3xl font-bold text-[#FF8811]">Dashboard</label>
+
+                    <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 md:text-lg font-semibold text-[#FF8811]">
+                        <li><Link to="/profile">Profile</Link></li>
+                        <li><Link to="/enrolled-courses">Enrolled Courses</Link></li>
+                        <li><Link to="/addNewCourses">Add New Course</Link></li>
+                        <li><Link to="/myAddedCourses">My Added Courses</Link></li>
+                    </ul>
+                </div>
+            )}
+        </>
     return (
-        <div className='Navbar parent'>
+        <div className='Navbar parent bg-[#f9f9f9] text-gray-800 shadow'>
             <div className="navbar bg-base-100">
-
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">
@@ -80,6 +71,9 @@ const NavBar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
+                    <nav className="flex mr-2 justify-between items-center rounded-full shadow-md">
+                        <ThemeToggle />
+                    </nav>
                     <Link to='/profile'>
                         <img className={`mr-1 ${user ? 'w-12 h-12 rounded-full text-center border-2 text-[#b413e1]' : 'w-12 h-12 rounded-full border-2 text-black'}`} src={`${user ? user.photoURL : '/user.png'}`} alt="User" />
                     </Link>
@@ -88,6 +82,7 @@ const NavBar = () => {
                             user ? <Link to='/login'><a onClick={handleLogout} className="btn text-white bg-gradient-to-r from-[#ffcc00] to-[#ff00e4]" href=""><BiLogOut /> Logout</a></Link> : <Link to='/login'><a className="btn text-white bg-gradient-to-r from-[#ffcc00] to-[#ff00e4]" href=""> <TbLogin2 />Login</a></Link>
                         }
                     </div>
+
                 </div>
 
             </div>

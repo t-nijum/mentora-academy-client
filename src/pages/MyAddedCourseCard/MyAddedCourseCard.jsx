@@ -41,7 +41,7 @@ const MyAddedCourseCard = ({ myAddedCourse, myFilteredCourses, setMyFilteredCour
     }
 
     return (
-        <div className='rounded-xl'>
+        <div className='rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100'>
             <div className="card md:w-[350px] bg-base-100 w-[370px] mx-auto shadow-xl p-5">
                 <figure className="p-4 bg-gray-100 w-2/3 mx-auto mt-2">
                     <img className="h-[150px]" src={image} alt="Course Photo" />

@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../provider/AuthProvider';
 import Swal from 'sweetalert2';
+import { div } from 'framer-motion/client';
 
 const EnrolledCourses = () => {
     const [enrolledCourses, setEnrolledCourses] = useState([]);
@@ -48,11 +49,19 @@ const EnrolledCourses = () => {
     }
 
     return (
-        <div className="max-w-6xl mx-auto mt-10 flex flex-col gap-5 mb-5">
-            <h2 className="text-3xl font-bold mb-6 text-center">My Enrolled Courses</h2>
+        <div className="max-w-6xl mx-auto flex flex-col gap-5 mb-5">
+            <h2 className="text-2xl md:text-3xl text-[#fcb500fa] font-bold text-center mt-5 ">My Enrolled Courses: {enrolledCourses.length}</h2>
 
             {enrolledCourses.length === 0 ? (
-                <p className="text-gray-500 text-center">You haven't enrolled in any courses yet.</p>
+                <div className="flex flex-col justify-center items-center h-64 text-center mt-10">
+                    <img
+                            src="/apperror.png"
+                            alt="No installed apps"
+                            className="w-60 h-60 mb-4"
+                        />
+                        <p className=" mb-5 text-center">You haven't enrolled in any courses yet.</p>
+                </div>
+
             ) : (
                 enrolledCourses.map((course) => (
                     <div

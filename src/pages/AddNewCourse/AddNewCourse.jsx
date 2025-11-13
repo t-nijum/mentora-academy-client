@@ -1,10 +1,12 @@
 import React, { use } from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../../provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const AddNewCourse = () => {
     const { user } = use(AuthContext)
     // console.log(user);
+    const navigate = useNavigate();
 
     const handleAddNewCourse = (e) => {
         e.preventDefault();
@@ -41,10 +43,10 @@ const AddNewCourse = () => {
             body: JSON.stringify(addNewCourse)
         })
             .then(res => res.json())
-            .then(data => {
-                console.log('after adding new course', data);
-
-            })
+            .then(() => {
+                      Swal.fire("Added!", "Course added successfully.", "success");
+                      navigate("/myAddedCourses"); // redirect after update
+                  });
 
         // const email = form.email.value;
         // const password = form.password.value;
@@ -52,9 +54,9 @@ const AddNewCourse = () => {
         // const terms = e.target.terms.checked;
     }
     return (
-        <div className="max-w-3xl mb-5 mx-auto bg-gradient-to-b from-[#FFF7EB] via-[#FFE8C4] to-[#FFB75E] p-8 rounded-lg shadow-md">
-            <h2 className="text-3xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-[#ffcc00] to-[#ff00e4]">New Course Details!</h2>
-            <p className="font-medium my-2 text-transparent bg-clip-text  bg-gradient-to-r from-[#FF8811] via-[#FFB75E] to-[#ff9e42] text-center">
+        <div className="max-w-3xl mb-5 mx-auto bg-base-200 p-8 rounded-lg shadow-md transition-colors duration-500">
+            <h2 className="text-3xl font-bold text-center text-[#fcb500fa]  ">New Course Details!</h2>
+            <p className="font-medium my-4 text-center  ">
                 Please share course details carefully, including the <br /> Title, Image URL, Price, Duration, Category, and Description , isFeatured.
             </p>
             <form onSubmit={handleAddNewCourse} className="space-y-4">
@@ -84,7 +86,7 @@ const AddNewCourse = () => {
                 <label className="label">Instructor Email</label>
                 <input required type="email" name="email" className="input input-bordered w-full" readOnly defaultValue={user?.email || ""} />
 
-                <button className="btn w-full text-black bg-gradient-to-r from-[#ffcc00] to-[#ff00e4] font-bold text-lg">
+                <button className="btn w-full bg-[#00d390] text-white font-bold text-lg">
                     Confirm to Add this Course
                 </button>
             </form>

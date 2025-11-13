@@ -58,19 +58,19 @@ const Login = () => {
     // To take email for email field also need to add ref={emailRef}
     const emailRef = useRef();
 
-    const handleForgetPassword = (e) => {
-        e.preventDefault();
-        const email = emailRef.current.value;
-        forgetPassword(email)
-            .then(() => {
-                toast('Password reset email sent')
-            })
-            .catch(error => {
-                console.log(error);
-                setError(error.message)
-            })
+    // const handleForgetPassword = (e) => {
+    //     e.preventDefault();
+    //     const email = emailRef.current.value;
+    //     forgetPassword(email)
+    //         .then(() => {
+    //             toast('Password reset email sent')
+    //         })
+    //         .catch(error => {
+    //             console.log(error);
+    //             setError(error.message)
+    //         })
 
-    }
+    // }
 
     const [showPass, setShowPass] = useState(false);
     const handleShowPass = (event) => {
@@ -128,7 +128,8 @@ const Login = () => {
                                     className="btn btn-xs absolute top-2 right-6">{showPass ? <FaEyeSlash /> : <FaEye />}</button>
                             </div>
                             <div >
-                                <a onClick={handleForgetPassword} className="link link-hover">Forgot password?</a>
+                                <a className="link link-hover">Forgot password?</a>
+                                {/* <a onClick={handleForgetPassword} className="link link-hover">Forgot password?</a> */}
                             </div>
                             <button type="submit" className="btn btn-neutral mt-4 border-[#b413e1] bg-[#b413e1]">Login</button>
                         </fieldset>

@@ -26,25 +26,54 @@ const MyAddedCourses = () => {
     // const myAddedCourses = use(myAddedCoursesPromise)
     // console.log(myAddedCourses);
 
+
+
     return (
-            <div>
-                <h1 className='text-5xl text-[#b413e1] font-bold text-center mt-5 md:mt-15'>Total Number of My Courses: {myFilteredCourses.length}</h1>
-                <p className='text-lg text-gray-600 font-semibold text-center mt-1'>Explore my Courses on the in Mentora Acamemy offered by us.</p>
-                <Suspense fallback={<span>Loading...</span>}>
-                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:mt-10 p-3  md:max-w-[2500px] mx-auto'>
-                        {
-                            myFilteredCourses.map(myAddedCourse => <MyAddedCourseCard myAddedCourse={myAddedCourse} 
-                            key={myAddedCourse._id}
-                            myFilteredCourses= {myFilteredCourses}
-                            setMyFilteredCourses={setMyFilteredCourses}
-                            ></MyAddedCourseCard>)
-                        }
+        <div>
+            <h1 className='text-2xl md:text-3xl text-[#fcb500fa] ] font-bold text-center mt-5'>
+                Total Number of My Courses: {myFilteredCourses.length}
+            </h1>
+            <p className=' text-base-400 font-semibold text-center mt-1'>
+                Explore my Courses on the Mentora Academy.
+            </p>
+
+            <Suspense fallback={<span>Loading...</span>}>
+                {myFilteredCourses.length === 0 ? (
+                    // Empty state outside the grid
+                    <div className="flex flex-col justify-center items-center h-96 px-5">
+                        <img
+                            src="/apperror.png"
+                            alt="No added courses found!"
+                            className="w-60 h-60"
+                        />
+                        <p className="text-center text-gray-600 mb-5">
+                            You haven't added any courses yet.
+                        </p>
                     </div>
-                </Suspense>
-                <div className='text-center md:mt-10'>
-                    <Link to='/games'><button className=" btn my-5 text-xl text-white bg-gradient-to-r from-[#b413e1] to-[#8a0cb0]"> Show All Games</button></Link>
-                </div>
+                ) : (
+                    // Grid of courses
+                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-8 px-5 md:max-w-[1200px] mx-auto'>
+                        {myFilteredCourses.map(myAddedCourse => (
+                            <MyAddedCourseCard
+                                key={myAddedCourse._id}
+                                myAddedCourse={myAddedCourse}
+                                myFilteredCourses={myFilteredCourses}
+                                setMyFilteredCourses={setMyFilteredCourses}
+                            />
+                        ))}
+                    </div>
+                )}
+            </Suspense>
+
+            <div className='text-center md:mt-2'>
+                <Link to='/enrolled-courses'>
+                    <button className="btn my-5 text-white bg-gradient-to-r from-[#ffcc00] to-[#ff00e4]">
+                        My Enrolled Courses
+                    </button>
+                </Link>
             </div>
+        </div>
+
     );
 };
 

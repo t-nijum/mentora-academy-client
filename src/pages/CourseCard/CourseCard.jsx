@@ -6,10 +6,10 @@ import { Link } from 'react-router';
 const CourseCard = ({ course }) => {
     const { _id, image, title, description, price, ratingAvg } = course
     return (
-        <div className="rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+        <div className="rounded-2xl bg-base-100 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-base-200">
             <div className="flex flex-col h-[470px]">
                 {/* Image */}
-                <figure className="bg-gray-50 rounded-t-2xl h-[180px] flex justify-center items-center overflow-hidden">
+                <figure className="bg-base-100 pt-5 rounded-t-2xl h-[180px] flex justify-center items-center overflow-hidden transition-colors duration-500">
                     <img
                         className="h-full object-contain hover:scale-105 transition-transform duration-300"
                         src={image}
@@ -20,10 +20,10 @@ const CourseCard = ({ course }) => {
                 {/* Content */}
                 <div className="flex-1 flex flex-col justify-between p-5">
                     <div>
-                        <h2 className="text-lg font-semibold text-gray-800 text-center line-clamp-2 min-h-[50px]">
+                        <h2 className="text-lg font-semibold text-base-content text-center line-clamp-2 min-h-[50px]">
                             {title}
                         </h2>
-                        <p className="text-gray-600 text-sm mt-2 line-clamp-3 min-h-[60px] text-center">
+                        <p className="text-sm mt-2 line-clamp-3 min-h-[60px] text-center text-base-content/60">
                             {description}
                         </p>
                     </div>

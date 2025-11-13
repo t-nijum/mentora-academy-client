@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = () => {
     return (
         <div>
-            <section className="bg-gradient-to-r from-[#FF8811] via-[#FFB75E] to-[#ff9e42] text-white  py-16 px-4 sm:px-6 lg:px-8">
+            <section className="bg-[#1e003e] text-white  py-16 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-3xl mx-auto text-center">
                     <h2 className="text-3xl sm:text-4xl font-extrabold mb-4">
                         Stay Ahead in Courses

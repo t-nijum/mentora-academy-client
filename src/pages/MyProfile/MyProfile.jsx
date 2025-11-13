@@ -5,8 +5,8 @@ import { AuthContext } from "../../provider/AuthProvider";
 const MyProfile = () => {
     const { user} = use(AuthContext);
     return (
-        <div className="max-w-md mx-auto mt-10 bg-white p-6 rounded-xl shadow-md text-center mb-5">
-            <title>Mentora Academy-My Profile</title>
+        <div className="max-w-md mx-auto mt-10 p-6 rounded-xl shadow-md text-center mb-5 bg-base-100 border border-base-200 transition-colors duration-500">
+            <title>Mentora-My Profile</title>
             <img
                 src={`${user ? user.photoURL : '/user.png'}`}
                 alt="My Photo"
@@ -16,7 +16,7 @@ const MyProfile = () => {
             <p className="text-gray-500 mb-6">{user?.email}</p>
 
             <Link to="/update-profile">
-                <button className="bg-[#b413e1] text-white px-4 py-2 rounded-lg hover:bg-[#9d13c6] transition">
+                <button className="btn text-white bg-gradient-to-r from-[#ffcc00] to-[#ff00e4]">
                     Update Information
                 </button>
             </Link>

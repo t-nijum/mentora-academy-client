@@ -20,7 +20,7 @@ const MyAddedCourseDetails = () => {
     // }
 
     return (
-        <div className='mx-5 md:max-w-[1100px] md:mx-auto card bg-base-100 shadow-lg border-gray-200 p-5 mt-3 md:mt-10'>
+        <div className='mx-5 md:max-w-[1100px] md:mx-auto card bg-base-100 shadow-lg border-gray-200 p-5 mt-3 md:my-10'>
             <title>{title}</title>
             <div className=" flex flex-col md:flex-row bg-base-100 shadow-sm">
                 <figure><img src={image} className='w-[250px] h-[250px] md:w-[350px] md:h-[350px]' alt="Apps" /></figure>

@@ -49,7 +49,7 @@ const UpdateCourse = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-md mt-10">
+    <div className="max-w-3xl mx-auto bg-base-100 p-8 rounded-lg shadow-md mt-10 transition-colors duration-500">
       <h2 className="text-3xl font-bold text-center mb-6">Update Course</h2>
 
       <form onSubmit={handleSubmit} className="space-y-4">
