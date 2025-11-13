@@ -41,9 +41,9 @@ const MyAddedCourseCard = ({ myAddedCourse, myFilteredCourses, setMyFilteredCour
     }
 
     return (
-        <div className='rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100'>
-            <div className="card md:w-[350px] bg-base-100 w-[370px] mx-auto shadow-xl p-5">
-                <figure className="p-4 bg-gray-100 w-2/3 mx-auto mt-2">
+        <div className=' rounded-2xl bg-gray-50 dark:bg-gray-800 shadow-lg dark:shadow-gray-900 hover:shadow-2xl dark:hover:shadow-gray-700 transition-all duration-300 transform hover:-translate-y-2 border dark:border-gray-700'>
+            <div className="card md:w-[350px] bg-base-100 w-[370px] mx-auto my-5 shadow-xl p-5">
+                <figure className="p-4 w-2/3 mx-auto mt-2 bg-gray-100 dark:bg-gray-700">
                     <img className="h-[150px]" src={image} alt="Course Photo" />
                 </figure>
 

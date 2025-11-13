@@ -49,7 +49,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className='mt-3 md:mt-20 h-[100px]'>
-                    <div class="border-t border-gray-700 max-w-[1600px] mx-auto"></div>
+                    <div className="border-t border-gray-700 max-w-[1600px] mx-auto"></div>
                     <p className='text-[#fafafa] font-light text-center mt-2 md:mt-10 py-3'>Copyright © Mentora Academy 2025 - All right reserved</p>
                 </div>
             </div>

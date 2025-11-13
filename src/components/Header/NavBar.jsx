@@ -75,11 +75,11 @@ const NavBar = () => {
                         <ThemeToggle />
                     </nav>
                     <Link to='/profile'>
-                        <img className={`mr-1 ${user ? 'w-12 h-12 rounded-full text-center border-2 text-[#b413e1]' : 'w-12 h-12 rounded-full border-2 text-black'}`} src={`${user ? user.photoURL : '/user.png'}`} alt="User" />
+                        <img className={`mr-1 ${user ? 'w-12 h-12 rounded-full text-center' : 'w-12 h-12 rounded-full border-2 text-black'}`} src={`${user ? user.photoURL : '/user.png'}`} alt="User" />
                     </Link>
                     <div>
                         {
-                            user ? <Link to='/login'><a onClick={handleLogout} className="btn text-white bg-gradient-to-r from-[#ffcc00] to-[#ff00e4]" href=""><BiLogOut /> Logout</a></Link> : <Link to='/login'><a className="btn text-white bg-gradient-to-r from-[#ffcc00] to-[#ff00e4]" href=""> <TbLogin2 />Login</a></Link>
+                            user ? <Link to='/login'><button onClick={handleLogout} className="btn text-white bg-gradient-to-r from-[#ffcc00] to-[#ff00e4]"><BiLogOut /> Logout</button></Link> : <Link to='/login'><button className="btn text-white bg-gradient-to-r from-[#ffcc00] to-[#ff00e4]"> <TbLogin2 />Login</button></Link>
                         }
                     </div>
 

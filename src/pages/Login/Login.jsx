@@ -113,7 +113,7 @@ const Login = () => {
         <div className="hero mb-5 pt-20 max-h-screen">
             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
                 <div className="text-center">
-                    <h1 className="text-5xl pt-10 font-bold">Login Now!</h1>
+                    <h1 className="text-4xl pt-10 mx-10 font-bold">Login Now!</h1>
                 </div>
                 <div className="card-body">
                     <form onSubmit={handleLogin}>
@@ -131,7 +131,7 @@ const Login = () => {
                                 <a className="link link-hover">Forgot password?</a>
                                 {/* <a onClick={handleForgetPassword} className="link link-hover">Forgot password?</a> */}
                             </div>
-                            <button type="submit" className="btn btn-neutral mt-4 border-[#b413e1] bg-[#b413e1]">Login</button>
+                            <button type="submit" className="btn w-full text-white bg-gradient-to-r from-[#ffcc00] to-[#ff00e4]">Login</button>
                         </fieldset>
                         {
                             success && <p className='text-green-500 font-bold'>Login Successfully!</p>

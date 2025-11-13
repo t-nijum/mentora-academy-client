@@ -55,8 +55,8 @@ const AddNewCourse = () => {
     }
     return (
         <div className="max-w-3xl mb-5 mx-auto bg-base-200 p-8 rounded-lg shadow-md transition-colors duration-500">
-            <h2 className="text-3xl font-bold text-center text-[#fcb500fa]  ">New Course Details!</h2>
-            <p className="font-medium my-4 text-center  ">
+            <h2 className="text-3xl font-bold text-center text-[#fcb500fa]  ">Add New Course!</h2>
+            <p className="font-medium text-base-400 my-4 text-center  ">
                 Please share course details carefully, including the <br /> Title, Image URL, Price, Duration, Category, and Description , isFeatured.
             </p>
             <form onSubmit={handleAddNewCourse} className="space-y-4">

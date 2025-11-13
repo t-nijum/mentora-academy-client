@@ -1,81 +1,107 @@
 # 🎓 MENTORA ACADEMY
 
+![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
+![Netlify](https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)
+
 **Live URL:** [https://mentora-academy.netlify.app/](https://mentora-academy.netlify.app/)
+
+---
+
+## 🌟 Highlights
+
+- Full **CRUD operations** for courses (Add, Update, Delete).  
+- **Enrollment management:** Users can enroll/un-enroll from courses.  
+- Personalized dashboards for **learners** and **instructors**.  
+- Role-based access with **secure authentication** (Google & email/password).  
+- Fully responsive, smooth, and modern UI with animations and notifications.
 
 ---
 
 ## 🧠 Project Overview
 
-**Mentora Academy** is a full-stack online learning platform built to empower users to **explore, share, and manage courses** easily.  
-Our mission is to make learning modern, engaging, and accessible — combining a clean design with an intuitive user experience.
+**Mentora Academy** is a full-stack **online learning platform** designed for **both learners and instructors**.  
 
-From browsing trending courses to managing personalized learning dashboards, **Mentora Academy** delivers an immersive and dynamic educational experience.
+- **Learners** can browse courses, enroll, track progress, and manage their learning.  
+- **Instructors** can create, update, and delete courses, and manage student enrollments.  
+- All course data, user enrollments, and instructor activities are stored in **MongoDB**, making the platform dynamic and scalable.  
+
+This project delivers a **modern, responsive, and interactive educational experience** combining React, Tailwind CSS, Firebase Authentication, and MongoDB.
 
 ---
 
 ## ✨ Key Features
 
 ### 🧭 Navigation & UI
-- Fully responsive **navigation bar** with smooth routing.
-- **Logo** redirects to the home page.
-- Dynamic **Login / Logout** button visibility based on authentication state.
-- Clicking the **user avatar** redirects to the profile/dashboard page.
+- Responsive navbar with role-based **Login / Logout** buttons.  
+- User avatar redirects to learner or instructor dashboard.  
 
-### 🎬 Hero Section
-- Engaging animated heading using **Framer Motion**.
-- Gradient text and modern design representing the tagline:
-  > **"Powering Learning Experiences"**
-
-### 📚 Course Explorer
-- Browse, search, and filter available courses.
-- Each course card displays:
-  - Image, title, instructor, duration, price, and rating.
-- Click on a course to view full details.
+### 📚 Course Management (CRUD)
+- **Instructors:** Add, update, and delete courses.  
+- **Learners:** Enroll in or un-enroll from courses.  
+- Data is **persisted in MongoDB** for all operations.  
 
 ### 🧾 Course Details Page
-- Detailed course information page with **Enroll Now** option.
-- Highlights lessons, description, and instructor bio.
+- Detailed course information including description, instructor info, reviews, and ratings.  
+- “Enroll Now” button for learners; instructor sees enrolled students.  
 
-### 👩‍🎓 User Dashboard
-- Personalized dashboard showing **enrolled courses** and **learning progress**.
-- Ability to remove or continue courses.
+### 👩‍🎓 Learner Dashboard
+- View all enrolled courses.  
+- Track progress and continue learning.  
+- Remove courses if needed.  
+
+### 👨‍🏫 Instructor Dashboard
+- Manage courses: add new courses, edit content, or remove courses.  
+- Track student enrollment and engagement metrics.  
 
 ### 👤 Profile Management
-- Update user info such as **name, email, and profile photo**.
-- Data synced with **Firebase Authentication**.
+- Update personal info (name, email, profile photo).  
+- Role-based dashboards synced with Firebase Authentication.  
 
 ### 🔐 Authentication
-- Secure **Google Sign-In** using Firebase.
-- **Email and password login** support.
-- **Password reset** feature with Firebase email authentication.
+- Google Sign-In and email/password login.  
+- Password reset support.  
+- Role-based access control for learners and instructors.  
 
 ### 💌 Newsletter
-- Subscribe via **Formspree** without backend setup.
-- Clean, simple subscription design for engagement.
+- Subscribe via **Formspree** without backend setup.  
 
 ### 🧩 Responsive Design
-- Built with **Tailwind CSS** + **DaisyUI** for a clean, modern interface.
-- Fully responsive — works across mobile, tablet, and desktop devices.
+- Tailwind CSS + DaisyUI for clean and modern UI.  
+- Works seamlessly across mobile, tablet, and desktop devices.  
 
 ### ⚡ Notifications & Animations
-- **React Toastify** for toast messages.
-- **SweetAlert2** for confirmation modals.
-- **Framer Motion** for smooth animations and transitions.
+- **React Toastify** for toast messages.  
+- **SweetAlert2** for confirmation modals.  
+- **Framer Motion** for smooth animations.
 
 ---
 
 ## 🛠️ Technologies Used
 
-| Category | Tools / Libraries |
-|-----------|-------------------|
-| **Frontend** | React, React Router |
-| **Styling** | Tailwind CSS, DaisyUI |
-| **Animations** | Framer Motion |
-| **Auth & Data** | Firebase Authentication |
+| Category          | Tools / Libraries |
+|------------------|------------------|
+| **Frontend**      | React, React Router |
+| **Styling**       | Tailwind CSS, DaisyUI |
+| **Animations**    | Framer Motion |
+| **Backend**       | Node.js, Express.js, MongoDB |
+| **Auth & Data**   | Firebase Authentication |
 | **UI Enhancements** | React Icons, SweetAlert2, React Toastify |
 | **Form Handling** | Formspree |
-| **Hosting** | Netlify |
+| **Hosting**       | Netlify |
 
 ---
 
+## 🚀 Run Locally
 
+1. Clone the repository:
+
+```bash
+git clone https://github.com/t-nijum/mentora-academy-client.git
+
+git clone https://github.com/t-nijum/mentora-academy-server.git
+
+
+---

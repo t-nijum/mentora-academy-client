@@ -16,7 +16,7 @@ const MyAddedCourses = () => {
             fetch(`http://localhost:3000/add_new_courses?email=${user.email}`)
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
+                    // console.log(data);
                     setMyFilteredCourses(data)
 
                 })
@@ -31,7 +31,7 @@ const MyAddedCourses = () => {
     return (
         <div>
             <h1 className='text-2xl md:text-3xl text-[#fcb500fa] ] font-bold text-center mt-5'>
-                Total Number of My Courses: {myFilteredCourses.length}
+                My Added Courses: {myFilteredCourses.length}
             </h1>
             <p className=' text-base-400 font-semibold text-center mt-1'>
                 Explore my Courses on the Mentora Academy.
@@ -52,7 +52,7 @@ const MyAddedCourses = () => {
                     </div>
                 ) : (
                     // Grid of courses
-                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-8 px-5 md:max-w-[1200px] mx-auto'>
+                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-8 px-5 max-w-full mx-auto'>
                         {myFilteredCourses.map(myAddedCourse => (
                             <MyAddedCourseCard
                                 key={myAddedCourse._id}
@@ -67,7 +67,7 @@ const MyAddedCourses = () => {
 
             <div className='text-center md:mt-2'>
                 <Link to='/enrolled-courses'>
-                    <button className="btn my-5 text-white bg-gradient-to-r from-[#ffcc00] to-[#ff00e4]">
+                    <button className="btn my-5 rounded-lg text-white bg-gradient-to-r from-[#ffcc00] to-[#ff00e4]">
                         My Enrolled Courses
                     </button>
                 </Link>

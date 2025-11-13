@@ -15,9 +15,9 @@ const Expertise = () => {
     <section className="overflow-hidden bg-base-100 pt-5 transition-colors duration-500">
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-5xl font-bold text-[#FF8811]">
-          Meet Our <span className="text-indigo-600">Expertise</span>
+          Meet Our <span className="text-indigo-600">Experts</span>
         </h2>
-        <p className="mt-2 text-gray-600 max-w-2xl mx-auto">
+        <p className="mt-2 text-base-400 max-w-2xl mx-auto">
           Learn from our expert instructors with years of experience in their fields.
         </p>
       </div>

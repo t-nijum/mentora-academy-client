@@ -12,10 +12,10 @@ const TopCourses = ({ topCoursesPromise }) => {
 
     return (
         <div>
-            <h1 className='text-5xl text-[#9d00ff] font-bold text-center mt-5 md:mt-15'>Top Rated Courses</h1>
-            <p className='text-lg text-[#2f00ff] font-semibold text-center mt-1'>Explore All Trending Popular Courses on the Mentora offered by us.</p>
+            <h1 className='text-5xl text-[#2f00ff] font-bold text-center  mt-5 md:mt-15'><span className='text-[#FF8811]'>Top Rated</span> Courses</h1>
+            <p className='mt-2 text-base-400 text-center'>Explore All Trending Popular Courses on the Mentora offered by us.</p>
             <Suspense fallback={<span>Loading...</span>}>
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-8 px-5 md:max-w-[1200px] mx-auto'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-8 px-5 max-w-full mx-auto'>
                     {
                         courses.map(course => <CourseCard course={course} key={course._id}></CourseCard>)
                     }

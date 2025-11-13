@@ -83,11 +83,11 @@ const Register = () => {
             <div className="hero">
                 <div className="hero-content flex-col">
                     <div className="text-center">
-                        <h1 className="text-5xl font-bold">Register Now!</h1>
-                        <p className="py-6 text-gray-600 text-center">
+                        <h1 className="text-4xl font-bold mx-15"> Register Now!</h1>
+                        {/* <p className="py-6 text-gray-600 text-center">
                             Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
                             quasi. In deleniti eaque aut repudiandae et a id nisi.
-                        </p>
+                        </p> */}
                     </div>
                     <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
                         <div className="card-body">
@@ -116,7 +116,7 @@ const Register = () => {
                                             Accept terms and conditions.
                                         </label>
                                     </div>
-                                    <button type="submit" className="btn btn-neutral mt-4 border-[#b413e1] bg-[#b413e1 bg-[#b413e1]">Register</button>
+                                    <button type="submit" className="btn w-full text-white bg-gradient-to-r from-[#ffcc00] to-[#ff00e4]">Register</button>
                                 </fieldset>
                                 {
                                     success && <p className="text-green-500 text-center font-bold">Account Created Successfully</p>
@@ -125,7 +125,7 @@ const Register = () => {
                                     error && <p className="text-red-500 text-center font-bold">{error}</p>
                                 }
                             </form>
-                            <p className='font-bold text-center'>Already have an account. <Link to='/login' className="text-blue-400 font-bold">Login</Link></p>
+                            <p className='font-bold text-center'>Already have an account. <Link to='/login' className="text-blue-600 font-bold">Login</Link></p>
                         </div>
                     </div>
                 </div>
