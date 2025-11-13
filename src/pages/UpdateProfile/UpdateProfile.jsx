@@ -29,7 +29,7 @@ const UpdateProfile = () => {
         onSubmit={handleUpdate}
         className="bg-white p-8 rounded-2xl shadow-lg w-96"
       >
-        <h2 className="text-2xl font-semibold text-center text-[#b413e1] mb-6">
+        <h2 className="text-2xl font-semibold text-center text-[#f0af0a] mb-6">
           Update Profile Information
         </h2>
 
@@ -59,7 +59,7 @@ const UpdateProfile = () => {
 
         <button
           type="submit"
-          className="w-full bg-[#b413e1] text-white font-semibold py-2 rounded-lg hover:bg-[#9a10c6] transition"
+          className="w-full bg-gradient-to-r from-[#ffcc00] to-[#ff00e4] font-semibold py-2 rounded-lg hover:bg-[#9a10c6] transition"
         >
           Update Information
         </button>

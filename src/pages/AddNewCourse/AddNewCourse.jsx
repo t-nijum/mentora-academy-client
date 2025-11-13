@@ -35,7 +35,8 @@ const AddNewCourse = () => {
             email: email,
             photo: photo,
         }
-        fetch('http://localhost:3000/add_new_courses', {
+        // fetch('http://localhost:3000/add_new_courses', {
+        fetch('https://mentora-academy-server.vercel.app/add_new_courses', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

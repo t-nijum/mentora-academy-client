@@ -17,7 +17,8 @@ const UpdateCourse = () => {
 
   // 🔹 Fetch existing data
   useEffect(() => {
-    fetch(`http://localhost:3000/add_new_courses/${id}`)
+    // fetch(`http://localhost:3000/add_new_courses/${id}`)
+    fetch(`https://mentora-academy-server.vercel.app/add_new_courses/${id}`)
       .then(res => res.json())
       .then(data => setCourseData(data));
   }, [id]);
@@ -32,7 +33,8 @@ const UpdateCourse = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch(`http://localhost:3000/add_new_courses/${id}`, {
+    // fetch(`http://localhost:3000/add_new_courses/${id}`, {
+    fetch(`https://mentora-academy-server.vercel.app/add_new_courses/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

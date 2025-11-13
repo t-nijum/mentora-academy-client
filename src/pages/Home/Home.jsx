@@ -1,21 +1,21 @@
-import React from 'react';
-import Banner from '../../components/Banner/Banner';
-import TopCourses from '../TopCourses/TopCourses';
-import Expertise from '../Expertise/Expertise';
-
-const topCoursesPromise = fetch('http://localhost:3000/top-courses')
-    .then(res => res.json())
+import React from "react";
+import { useLoaderData } from "react-router";
+import Banner from "../../components/Banner/Banner";
+import TopCourses from "../TopCourses/TopCourses";
+import Expertise from "../Expertise/Expertise";
 
 const Home = () => {
-    return (
-        <div>
-            <title>Mentora Academy-Home</title>
-            {import.meta.env.VITE_name}
-            <Banner></Banner>
-            <Expertise></Expertise>
-            <TopCourses topCoursesPromise={topCoursesPromise}></TopCourses>
-        </div>
-    );
+  const topCourses = useLoaderData();
+
+  return (
+    <div>
+      <title>Mentora Academy - Home</title>
+      {import.meta.env.VITE_name}
+      <Banner></Banner>
+      <Expertise></Expertise>
+      <TopCourses topCourses={topCourses}></TopCourses>
+    </div>
+  );
 };
 
 export default Home;

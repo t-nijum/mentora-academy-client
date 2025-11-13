@@ -32,7 +32,8 @@ const Login = () => {
                 }
 
                 // create user in the database
-                fetch('http://localhost:3000/users', {
+                // fetch('http://localhost:3000/users', {
+                fetch('https://mentora-academy-server.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -89,7 +90,8 @@ const Login = () => {
                     image: result.user.photoURL
                 }
                 // create user in the database
-                fetch('http://localhost:3000/users', {
+                // fetch('http://localhost:3000/users', {
+                fetch('https://mentora-academy-server.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

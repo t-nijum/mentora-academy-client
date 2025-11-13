@@ -27,9 +27,20 @@ export const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
-        loader: () => fetch('/appsData.json'),
-        hydrateFallbackElement: <Loading></Loading>,
-        
+        loader: async () => {
+          try {
+            const res = await fetch(
+              "https://mentora-academy-server.vercel.app/top-courses"
+            );
+            if (!res.ok) throw new Error("Failed to fetch top courses");
+            const data = await res.json();
+            return data;
+          } catch (err) {
+            console.error(err);
+            return []; // fallback if API fails
+          }
+        },
+        hydrateFallbackElement: <Loading />,
       },
       {
         path: '/login',
@@ -61,14 +72,15 @@ export const router = createBrowserRouter([
       },
       {
         path: '/courseDetails/:id',
-        loader: ({params}) => fetch(`http://localhost:3000/courses/${params.id}`),
+        // loader: ({params}) => fetch(`http://localhost:3000/courses/${params.id}`),
+        loader: ({ params }) => fetch(`https://mentora-academy-server.vercel.app/courses/${params.id}`),
         element: <PrivateRoute><CourseDetails></CourseDetails></PrivateRoute>,
         hydrateFallbackElement: <Loading></Loading>,
         // Component: CourseDetails
       },
       {
         path: '/myAddedCourseDetails/:id',
-        loader: ({params}) => fetch(`http://localhost:3000/add_new_courses/${params.id}`),
+        loader: ({ params }) => fetch(`http://localhost:3000/add_new_courses/${params.id}`),
         element: <PrivateRoute><MyAddedCourseDetails></MyAddedCourseDetails></PrivateRoute>,
         hydrateFallbackElement: <Loading></Loading>,
         // Component: MyAddedCourseDetails

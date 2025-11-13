@@ -3,21 +3,47 @@ import React from 'react';
 const Footer = () => {
     return (
         <div>
-            <section className="bg-[#1e003e] text-white  py-16 px-4 sm:px-6 lg:px-8">
+            <section className="bg-[#1e003e] text-white py-16 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-3xl mx-auto text-center">
+                    {/* Section Title */}
+                    <h2 className="text-3xl sm:text-4xl font-extrabold mb-4">
+                        Why You Choose Us
+                    </h2>
+                    <p className="text-lg text-gray-300 mb-8">
+                        Join our newsletter for exclusive course launches, tips & insider updates.
+                    </p>
+
+                    <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                        <div className="p-4 bg-[#2a005e] rounded-lg shadow">
+                            <h3 className="text-xl font-semibold mb-2">Multi-Type Courses</h3>
+                            <p className="text-gray-300 text-sm">
+                                Access a wide range of courses across different fields and categories.
+                            </p>
+                        </div>
+                        <div className="p-4 bg-[#2a005e] rounded-lg shadow">
+                            <h3 className="text-xl font-semibold mb-2">Upload Your Course</h3>
+                            <p className="text-gray-300 text-sm">
+                                Share your knowledge by uploading your own courses and reach learners globally.
+                            </p>
+                        </div>
+                        <div className="p-4 bg-[#2a005e] rounded-lg shadow">
+                            <h3 className="text-xl font-semibold mb-2">Student Discounts & Free Offers</h3>
+                            <p className="text-gray-300 text-sm">
+                                Get monthly free courses and exclusive discounts for students.
+                            </p>
+                        </div>
+                    </div>
                     <h2 className="text-3xl sm:text-4xl font-extrabold mb-4">
                         Stay Ahead in Courses
                     </h2>
-                    <p className="text-lg text-gray-300 mb-8">
-                        Join our newsletter for exclusive course launches, tips &amp; insider updates.
-                    </p>
+
                     <form className="sm:flex sm:justify-center">
                         <input
                             type="email"
                             name="email"
                             required
                             placeholder="Enter your email address"
-                            className="w-full sm:w-2/3 md:w-1/2 px-5 py-3 rounded-lg text-white border-1 focus:ring-[#ffcc00]  "
+                            className="w-full sm:w-2/3 md:w-1/2 px-5 py-3 rounded-lg text-white border-1 focus:ring-[#ffcc00]"
                         />
                         <button
                             type="submit"
@@ -26,6 +52,7 @@ const Footer = () => {
                             Subscribe Now
                         </button>
                     </form>
+
                     <p className="text-sm text-gray-400 mt-4">
                         We respect your inbox. Unsubscribe anytime.
                     </p>

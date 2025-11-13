@@ -8,6 +8,8 @@
 
 **Live URL:** [https://mentora-academy.netlify.app/](https://mentora-academy.netlify.app/)
 
+**Server URL:** [https://mentora-academy-server.vercel.app/](https://mentora-academy-server.vercel.app/)
+
 ---
 
 ## 🌟 Highlights
@@ -63,7 +65,7 @@ This project delivers a **modern, responsive, and interactive educational experi
 ### 🔐 Authentication
 - Google Sign-In and email/password login.  
 - Password reset support.  
-- Role-based access control for learners and instructors.  
+- User base enrolled and added courses learners and instructors.  
 
 ### 💌 Newsletter
 - Subscribe via **Formspree** without backend setup.  

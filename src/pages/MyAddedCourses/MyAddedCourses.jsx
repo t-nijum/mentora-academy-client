@@ -13,7 +13,8 @@ const MyAddedCourses = () => {
 
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:3000/add_new_courses?email=${user.email}`)
+            // fetch(`http://localhost:3000/add_new_courses?email=${user.email}`)
+            fetch(`https://mentora-academy-server.vercel.app/add_new_courses?email=${user.email}`)
                 .then(res => res.json())
                 .then(data => {
                     // console.log(data);

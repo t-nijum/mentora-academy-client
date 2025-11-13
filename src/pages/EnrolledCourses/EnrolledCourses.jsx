@@ -9,7 +9,8 @@ const EnrolledCourses = () => {
 
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:3000/enrolledCourses/user/${user.email}`)
+            // fetch(`http://localhost:3000/enrolledCourses/user/${user.email}`)
+            fetch(`https://mentora-academy-server.vercel.app/enrolledCourses/user/${user.email}`)
                 .then(res => res.json())
                 .then(data => setEnrolledCourses(data))
                 .catch(err => console.error(err));
@@ -28,7 +29,8 @@ const EnrolledCourses = () => {
             confirmButtonText: 'Yes, remove it!',
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/enrolledCourses/${id}`, {
+                // fetch(`http://localhost:3000/enrolledCourses/${id}`, {
+                fetch(`https://mentora-academy-server.vercel.app/enrolledCourses/${id}`, {
                     method: 'DELETE',
                 })
                     .then(res => res.json())

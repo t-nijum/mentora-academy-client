@@ -22,7 +22,8 @@ const MyAddedCourseCard = ({ myAddedCourse, myFilteredCourses, setMyFilteredCour
         }).then((result) => {
             console.log('Delete Clicked', result);
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/add_new_courses/${_id}`, {
+                // fetch(`http://localhost:3000/add_new_courses/${_id}`, {
+                fetch(`https://mentora-academy-server.vercel.app/add_new_courses/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

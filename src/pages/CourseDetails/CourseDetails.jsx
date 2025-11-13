@@ -23,7 +23,8 @@ const CourseDetails = () => {
             enrolledAt: new Date(),
         };
 
-        fetch("http://localhost:3000/enrolledCourses", {
+        // fetch("http://localhost:3000/enrolledCourses", {
+        fetch("https://mentora-academy-server.vercel.app/enrolledCourses", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(enrolledData),

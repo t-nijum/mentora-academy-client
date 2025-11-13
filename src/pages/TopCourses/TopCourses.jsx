@@ -1,14 +1,8 @@
 import React, { Suspense, use } from 'react';
 import { Link } from 'react-router';
-// import OurApp from '../OurApp/OurApp';
 import CourseCard from '../CourseCard/CourseCard';
 
-
-const TopCourses = ({ topCoursesPromise }) => {
-
-    const courses = use(topCoursesPromise)
-    console.log(courses);
-
+const TopCourses = ({ topCourses }) => {
 
     return (
         <div>
@@ -17,7 +11,7 @@ const TopCourses = ({ topCoursesPromise }) => {
             <Suspense fallback={<span>Loading...</span>}>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-8 px-5 max-w-full mx-auto'>
                     {
-                        courses.map(course => <CourseCard course={course} key={course._id}></CourseCard>)
+                        topCourses.map(course => <CourseCard course={course} key={course._id}></CourseCard>)
                     }
                 </div>
             </Suspense>

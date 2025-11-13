@@ -1,7 +1,8 @@
 import React, { Suspense, use, useEffect, useState } from 'react';
 import CourseCard from '../CourseCard/CourseCard';
 
-const coursesPromise = fetch('http://localhost:3000/courses')
+// const coursesPromise = fetch('http://localhost:3000/courses')
+const coursesPromise = fetch('https://mentora-academy-server.vercel.app/courses')
     .then(res => res.json());
 
 const Courses = () => {
